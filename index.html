@@ -455,6 +455,35 @@
   .support-card ul li::before{content:"✓"; color:var(--green); position:absolute; left:0; font-weight:700;}
   .support-card .btn{margin-top:auto;}
 
+  .tier-preview{
+    border-radius:6px;
+    padding:10px 12px;
+    margin-bottom:12px;
+    font-size:11px;
+    line-height:1.6;
+  }
+  .tier-preview .tp-label{
+    font-size:10px;
+    font-weight:700;
+    letter-spacing:0.3px;
+    margin-bottom:5px;
+    display:block;
+  }
+  .tier-preview.log{background:#fdfdf8; border:1px solid #e5e0d0; border-left:3px solid var(--green); color:#555;}
+  .tier-preview.log .tp-label{color:var(--navy);}
+  .tier-preview.weekly{background:#eef7f1; border:1px solid #cfe9d8; color:#3a3a3a;}
+  .tier-preview.weekly .tp-label{color:#1c5e3a;}
+  .tier-preview.qa{background:#faf3e3; border:1px solid #eddcb0; color:#3a3a3a;}
+  .tier-preview.qa .tp-label{color:#7a5a12;}
+  .tier-preview .tp-example{
+    display:block;
+    margin-top:6px;
+    font-size:9px;
+    text-transform:uppercase;
+    letter-spacing:0.5px;
+    color:#999;
+  }
+
   .one-time-grid{
     display:grid;
     grid-template-columns:1fr 1fr;
@@ -855,6 +884,11 @@
           <li>Monthly community update</li>
           <li>Follow the journey from day one</li>
         </ul>
+        <div class="tier-preview log">
+          <span class="tp-label">Daily Log — Day 1</span>
+          Many Ways Up LLC is now a registered business. The EIN is in. The foundation starts here.
+          <span class="tp-example">Example entry</span>
+        </div>
         <a href="https://buy.stripe.com/28E7sNfe29g7bfO3ji3VC06" target="_blank" rel="noopener" class="btn btn-dark-outline">Become a Neighbor</a>
       </div>
 
@@ -869,6 +903,13 @@
           <li>Development progress updates</li>
           <li>Builder recognition on the website</li>
         </ul>
+        <div class="tier-preview weekly">
+          <span class="tp-label">Weekly Breakdown — Week of Jul 1</span>
+          &#10003; DNS fixed, manywaysup.com is live<br>
+          &#10003; Stripe checkout wired up for the book<br>
+          &#8226; Next: illustrated pages for Volume 1
+          <span class="tp-example">Example entry</span>
+        </div>
         <a href="https://buy.stripe.com/fZu3cx6HwgIz83C8DC3VC07" target="_blank" rel="noopener" class="btn btn-primary">Become a Builder</a>
       </div>
 
@@ -883,6 +924,12 @@
           <li>Founding Supporter recognition in Volume 2 of the book</li>
           <li>First access to platform launches</li>
         </ul>
+        <div class="tier-preview qa">
+          <span class="tp-label">Live Q&A — This Week</span>
+          <strong style="color:var(--navy);">Q:</strong> When does BridgeWork launch?<br>
+          <strong style="color:var(--navy);">A:</strong> Targeting next month, testing payouts now.
+          <span class="tp-example">Example entry</span>
+        </div>
         <a href="https://buy.stripe.com/4gM5kF5DsgIz6Zy9HG3VC08" target="_blank" rel="noopener" class="btn btn-dark-outline">Become a Founding Supporter</a>
       </div>
     </div>
