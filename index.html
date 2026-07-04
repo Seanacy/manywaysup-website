@@ -1,0 +1,1007 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Many Ways Up LLC — Building Technology for the People Who Need It Most</title>
+<meta name="description" content="Many Ways Up LLC is a Minneapolis social impact technology company building platforms that help people move from crisis to stability.">
+<link rel="icon" type="image/x-icon" href="favicon.ico">
+<link rel="apple-touch-icon" href="favicon-180.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700;800&family=Inter:wght@300;400;500;600;700;800&family=Caveat:wght@500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --navy:#0F1F3D;
+    --white:#FFFFFF;
+    --green:#4CAF7D;
+    --gold:#D4A853;
+    --offwhite:#F9F5EF;
+    --grey:#F4F4F4;
+    --red:#D9534F;
+    --text-dark:#16233F;
+    --text-grey:#c9d2e3;
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  html{scroll-behavior:smooth;}
+  body{
+    font-family:'Inter', sans-serif;
+    background:var(--white);
+    color:var(--text-dark);
+    line-height:1.6;
+    overflow-x:hidden;
+  }
+  img,svg{max-width:100%; display:block;}
+  a{text-decoration:none; color:inherit;}
+  ul{list-style:none;}
+  .container{
+    max-width:1100px;
+    margin:0 auto;
+    padding:0 24px;
+  }
+  section{
+    padding:80px 0;
+    position:relative;
+  }
+  .eyebrow{
+    font-size:13px;
+    letter-spacing:2px;
+    font-weight:700;
+    text-transform:uppercase;
+    color:var(--green);
+    margin-bottom:14px;
+    display:block;
+  }
+  h1,h2,h3{font-family:'Playfair Display', serif; font-weight:700;}
+  .section-head{text-align:center; max-width:720px; margin:0 auto 48px;}
+  .section-head h2{font-size:clamp(28px,4vw,42px); color:var(--text-dark); line-height:1.25;}
+  .section-head p{margin-top:14px; font-size:16px; color:#555; font-weight:400;}
+  .dark .section-head h2{color:var(--white);}
+  .dark .section-head p{color:var(--text-grey);}
+
+  /* Buttons */
+  .btn{
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    gap:8px;
+    padding:14px 28px;
+    border-radius:8px;
+    font-weight:600;
+    font-size:15px;
+    cursor:pointer;
+    border:2px solid transparent;
+    transition:transform .2s ease, opacity .2s ease;
+    white-space:nowrap;
+  }
+  .btn:hover{transform:translateY(-2px);}
+  .btn-primary{background:var(--green); color:var(--white);}
+  .btn-outline{background:transparent; color:var(--white); border-color:rgba(255,255,255,0.5);}
+  .btn-outline:hover{border-color:var(--white);}
+  .btn-dark-outline{background:transparent; color:var(--navy); border-color:var(--navy);}
+  .btn-block{width:100%;}
+
+  .ph-badge{
+    display:inline-block;
+    font-size:10px;
+    font-weight:700;
+    letter-spacing:1px;
+    background:var(--gold);
+    color:var(--navy);
+    padding:2px 6px;
+    border-radius:4px;
+    margin-left:8px;
+    vertical-align:middle;
+  }
+
+  /* Fade in */
+  .fade-in{opacity:0; transform:translateY(24px); transition:opacity .8s ease, transform .8s ease;}
+  .fade-in.visible{opacity:1; transform:translateY(0);}
+
+  /* ---------- HEADER ---------- */
+  .site-header{
+    position:sticky;
+    top:0;
+    z-index:20;
+    background:var(--white);
+    box-shadow:0 1px 0 rgba(0,0,0,0.06);
+  }
+  .header-inner{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    padding:12px 24px;
+  }
+  .logo-group{
+    display:flex;
+    align-items:center;
+    gap:10px;
+  }
+  .logo-group img{
+    height:38px;
+    width:auto;
+  }
+  .logo-group span{
+    font-family:'Inter', sans-serif;
+    font-weight:800;
+    font-size:16px;
+    letter-spacing:0.5px;
+    color:var(--navy);
+    text-transform:uppercase;
+  }
+  .header-inner .btn{
+    padding:9px 18px;
+    font-size:13px;
+  }
+
+  /* ---------- HERO ---------- */
+  #hero{
+    min-height:100vh;
+    background:var(--navy);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+    position:relative;
+    overflow:hidden;
+    padding:120px 24px;
+  }
+  #hero canvas{position:absolute; top:0; left:0; width:100%; height:100%; z-index:0;}
+  .hero-inner{position:relative; z-index:1; max-width:800px;}
+  .hero-inner h1{
+    color:var(--white);
+    font-size:clamp(30px,5.5vw,58px);
+    line-height:1.2;
+    margin-bottom:22px;
+  }
+  .hero-inner p{
+    color:var(--text-grey);
+    font-size:clamp(15px,2vw,19px);
+    font-weight:300;
+    max-width:600px;
+    margin:0 auto 36px;
+  }
+  .hero-buttons{display:flex; flex-wrap:wrap; gap:16px; justify-content:center;}
+
+  /* ---------- ECOSYSTEM ---------- */
+  #ecosystem{background:var(--white);}
+  .flow-bar{
+    display:flex;
+    flex-wrap:wrap;
+    justify-content:center;
+    gap:12px;
+    margin-bottom:56px;
+  }
+  .flow-pill{
+    padding:10px 22px;
+    border-radius:999px;
+    color:var(--white);
+    font-weight:700;
+    font-size:13px;
+    letter-spacing:0.5px;
+    text-transform:uppercase;
+  }
+  .pill-crisis{background:var(--red);}
+  .pill-stabilization{background:var(--gold); color:var(--navy);}
+  .pill-reintegration{background:var(--green);}
+  .pill-independence{background:var(--navy);}
+
+  .card-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:24px;
+  }
+  .platform-card{
+    background:var(--grey);
+    border-radius:16px;
+    padding:32px;
+    display:flex;
+    flex-direction:column;
+    gap:14px;
+  }
+  .stage-badge{
+    align-self:flex-start;
+    font-size:11px;
+    font-weight:800;
+    letter-spacing:1px;
+    padding:5px 12px;
+    border-radius:999px;
+    color:var(--white);
+    text-transform:uppercase;
+  }
+  .platform-card h3{font-family:'Inter',sans-serif; font-size:22px; font-weight:700; color:var(--text-dark);}
+  .platform-card p{color:#555; font-size:15px;}
+  .platform-card .btn{align-self:flex-start; margin-top:8px;}
+
+  /* ---------- STORY SCROLL ---------- */
+  #story{background:var(--navy); color:var(--white);}
+  .story-top{text-align:center; max-width:680px; margin:0 auto 60px;}
+  .story-top .eyebrow{color:var(--gold);}
+  .story-top h2{color:var(--white); font-size:clamp(28px,4.5vw,44px);}
+  .story-labels{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    max-width:900px;
+    margin:0 auto 20px;
+    gap:0;
+  }
+  .story-labels span{
+    font-size:12px;
+    font-weight:800;
+    letter-spacing:2px;
+    text-transform:uppercase;
+    text-align:center;
+  }
+  .story-labels .label-left{color:var(--green);}
+  .story-labels .label-right{color:var(--gold);}
+  .chapter{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    max-width:900px;
+    margin:0 auto;
+    gap:0;
+    padding:36px 0;
+    border-bottom:1px solid rgba(255,255,255,0.08);
+    position:relative;
+  }
+  .chapter::before{
+    content:"";
+    position:absolute;
+    top:0; bottom:0; left:50%;
+    width:1px;
+    background:rgba(255,255,255,0.15);
+  }
+  .chapter-col{padding:0 28px;}
+  .chapter-col.left p{
+    font-family:'Playfair Display', serif;
+    font-size:clamp(16px,2vw,19px);
+    line-height:1.7;
+    color:var(--white);
+  }
+  .chapter-col.right p{
+    font-size:15px;
+    line-height:1.7;
+    color:var(--text-grey);
+  }
+  .chapter-num{
+    font-size:12px;
+    font-weight:700;
+    letter-spacing:1.5px;
+    color:rgba(255,255,255,0.35);
+    margin-bottom:10px;
+    display:block;
+    text-transform:uppercase;
+  }
+  .chapter-ref{
+    grid-column:1 / -1;
+    text-align:center;
+    margin-bottom:22px;
+  }
+  .chapter-ref span{
+    display:inline-block;
+    background:rgba(212,168,83,0.12);
+    border:1px solid rgba(212,168,83,0.4);
+    color:var(--gold);
+    font-size:11px;
+    font-weight:800;
+    letter-spacing:1px;
+    text-transform:uppercase;
+    padding:6px 16px;
+    border-radius:999px;
+  }
+  @media (max-width:720px){
+    .chapter-ref{margin-bottom:14px;}
+  }
+  .petition-btn{margin-top:16px;}
+
+  @media (max-width:720px){
+    .chapter{grid-template-columns:1fr;}
+    .chapter::before{display:none;}
+    .chapter-col.right{border-top:1px dashed rgba(255,255,255,0.15); margin-top:18px; padding-top:18px;}
+    .story-labels{grid-template-columns:1fr; gap:6px; margin-bottom:8px;}
+    .story-labels .label-right{display:none;}
+  }
+
+  /* ---------- BOOK ---------- */
+  #book{background:var(--offwhite);}
+  #book .section-head .eyebrow{color:var(--green);}
+  #book .subhead{
+    text-align:center;
+    font-size:16px;
+    color:var(--gold);
+    font-weight:700;
+    letter-spacing:0.5px;
+    margin-top:-30px;
+    margin-bottom:20px;
+  }
+  #book .desc{max-width:640px; margin:0 auto 48px; text-align:center; color:#555; font-size:15px;}
+  .product-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:24px;
+  }
+  .product-card{
+    background:var(--white);
+    border-radius:16px;
+    padding:32px;
+    text-align:center;
+    box-shadow:0 4px 20px rgba(0,0,0,0.05);
+    display:flex;
+    flex-direction:column;
+    gap:12px;
+  }
+  .product-card h4{font-family:'Inter',sans-serif; font-size:15px; text-transform:uppercase; letter-spacing:1px; color:#777;}
+  .product-card .price{font-family:'Playfair Display', serif; font-size:32px; color:var(--navy); font-weight:700;}
+  .product-card p.small{font-size:14px; color:#666;}
+  .product-card .btn{margin-top:10px;}
+
+  /* ---------- FOUNDATION TRACKER ---------- */
+  #foundation{background:var(--navy); color:var(--white);}
+  #foundation .section-head .eyebrow{color:var(--gold);}
+  .milestone-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:20px;
+  }
+  .milestone-card{
+    background:rgba(255,255,255,0.05);
+    border:1px solid rgba(255,255,255,0.1);
+    border-radius:14px;
+    padding:26px;
+  }
+  .milestone-card.done{opacity:1; border-color:rgba(76,175,125,0.4);}
+  .milestone-card.pending{opacity:0.5;}
+  .milestone-icon{
+    width:28px; height:28px;
+    border-radius:50%;
+    display:flex; align-items:center; justify-content:center;
+    margin-bottom:14px;
+    font-size:15px;
+    font-weight:700;
+  }
+  .milestone-card.done .milestone-icon{background:var(--green); color:var(--white);}
+  .milestone-card.pending .milestone-icon{background:transparent; border:2px solid rgba(255,255,255,0.3);}
+  .milestone-card h3{font-family:'Inter',sans-serif; font-size:17px; margin-bottom:8px; color:var(--white);}
+  .milestone-card p{font-size:14px; color:var(--text-grey);}
+
+  /* ---------- DAILY LOG ---------- */
+  #dailylog{background:var(--white);}
+  .log-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:24px;
+    margin-bottom:36px;
+  }
+  .log-card{
+    background:linear-gradient(180deg, #fdfdf8 0px, #fdfdf8 34px, #f2efe4 35px);
+    background-size:100% 36px;
+    border:1px solid #e5e0d0;
+    border-left:4px solid var(--green);
+    border-radius:6px;
+    padding:24px 22px;
+    box-shadow:0 4px 14px rgba(0,0,0,0.05);
+  }
+  .log-date{
+    font-family:'Caveat', cursive;
+    font-size:26px;
+    color:var(--navy);
+    margin-bottom:10px;
+    display:block;
+  }
+  .log-card p{font-size:14.5px; color:#3a3a3a;}
+  .log-below{text-align:center;}
+  .log-below p{color:#555; margin-bottom:20px; font-size:15px;}
+
+  /* ---------- SUPPORT ---------- */
+  #support{background:var(--white);}
+  .support-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:24px;
+    margin-bottom:40px;
+  }
+  .support-card{
+    border:1px solid #e6e6e6;
+    border-radius:16px;
+    padding:32px;
+    display:flex;
+    flex-direction:column;
+    gap:10px;
+  }
+  .support-card.highlight{
+    border:2px solid var(--green);
+    box-shadow:0 8px 24px rgba(76,175,125,0.15);
+    position:relative;
+  }
+  .highlight-tag{
+    position:absolute;
+    top:-13px; left:50%; transform:translateX(-50%);
+    background:var(--green); color:var(--white);
+    font-size:11px; font-weight:800; letter-spacing:1px;
+    padding:4px 14px; border-radius:999px;
+    text-transform:uppercase;
+  }
+  .support-card h3{font-family:'Inter',sans-serif; font-size:20px;}
+  .support-card .price{font-family:'Playfair Display', serif; font-size:28px; color:var(--navy);}
+  .support-card p.tagline{color:#666; font-size:14px;}
+  .support-card ul{margin:10px 0; display:flex; flex-direction:column; gap:8px;}
+  .support-card ul li{font-size:14px; color:#444; padding-left:20px; position:relative;}
+  .support-card ul li::before{content:"✓"; color:var(--green); position:absolute; left:0; font-weight:700;}
+  .support-card .btn{margin-top:auto;}
+
+  .one-time-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:20px;
+    max-width:700px;
+    margin:0 auto;
+  }
+  .one-time-card{
+    border:1px dashed #ccc;
+    border-radius:14px;
+    padding:24px;
+    text-align:center;
+  }
+  .one-time-card .amt{font-family:'Playfair Display', serif; font-size:26px; color:var(--navy); margin-bottom:10px;}
+
+  /* ---------- IMPACT ---------- */
+  #impact{background:var(--grey);}
+  .metric-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:20px;
+  }
+  .metric-tile{
+    background:var(--white);
+    border-radius:14px;
+    padding:32px 16px;
+    text-align:center;
+  }
+  .metric-tile .num{font-family:'Playfair Display', serif; font-size:40px; font-weight:800; color:var(--navy);}
+  .metric-tile .label{font-size:13px; color:#666; margin-top:8px; text-transform:uppercase; letter-spacing:0.5px;}
+
+  /* ---------- EMAIL ---------- */
+  #emailsignup{background:var(--navy); color:var(--white); text-align:center;}
+  #emailsignup h2{color:var(--white); font-size:clamp(26px,4vw,38px); margin-bottom:14px;}
+  #emailsignup p{color:var(--text-grey); max-width:520px; margin:0 auto 32px; font-size:15px;}
+  .email-form{
+    display:flex;
+    gap:12px;
+    max-width:480px;
+    margin:0 auto;
+    flex-wrap:wrap;
+    justify-content:center;
+  }
+  .email-form input{
+    flex:1;
+    min-width:220px;
+    padding:14px 18px;
+    border-radius:8px;
+    border:none;
+    font-size:15px;
+    font-family:'Inter',sans-serif;
+  }
+
+  /* ---------- FOOTER ---------- */
+  footer{background:var(--navy); color:var(--white); padding-top:60px;}
+  .footer-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:32px;
+    padding-bottom:40px;
+    border-bottom:1px solid rgba(255,255,255,0.1);
+  }
+  .footer-grid h4{font-size:17px; margin-bottom:14px; font-family:'Inter',sans-serif;}
+  .footer-grid p, .footer-grid a{display:block; font-size:14px; color:var(--text-grey); margin-bottom:8px;}
+  .footer-grid a:hover{color:var(--green);}
+  .social-icons{display:flex; gap:14px; margin-top:8px;}
+  .social-icons a{
+    width:38px; height:38px;
+    border-radius:50%;
+    border:1px solid rgba(255,255,255,0.2);
+    display:flex; align-items:center; justify-content:center;
+  }
+  .footer-bottom{
+    padding:24px;
+    text-align:center;
+    font-size:13px;
+    color:var(--text-grey);
+    display:flex;
+    flex-wrap:wrap;
+    justify-content:center;
+    gap:8px;
+  }
+
+  @media (max-width:820px){
+    .card-grid, .product-grid, .milestone-grid, .log-grid, .support-grid, .metric-grid, .footer-grid{
+      grid-template-columns:1fr;
+    }
+    .one-time-grid{grid-template-columns:1fr;}
+    section{padding:56px 0;}
+  }
+  @media (min-width:821px) and (max-width:1080px){
+    .metric-grid{grid-template-columns:repeat(3,1fr);}
+  }
+</style>
+</head>
+<body>
+
+<!-- ================= HEADER ================= -->
+<header class="site-header">
+  <div class="container header-inner">
+    <div class="logo-group">
+      <img src="mwu-icon.png" alt="Many Ways Up logo">
+      <span>Many Ways Up</span>
+    </div>
+    <a href="https://linktr.ee/ManyWaysUpLLC" target="_blank" rel="noopener" class="btn btn-dark-outline">Support the Mission</a>
+  </div>
+</header>
+
+<!-- ================= HERO ================= -->
+<section id="hero">
+  <canvas id="particles"></canvas>
+  <div class="hero-inner">
+    <h1>Building Technology for the People Who Need It Most.</h1>
+    <p>Many Ways Up LLC is a Minneapolis social impact technology company building platforms that help people move from crisis to stability.</p>
+    <div class="hero-buttons">
+      <a href="#story" class="btn btn-primary">Explore the Journey</a>
+      <a href="https://linktr.ee/ManyWaysUpLLC" target="_blank" rel="noopener" class="btn btn-outline">Support the Mission</a>
+    </div>
+  </div>
+</section>
+
+<!-- ================= ECOSYSTEM ================= -->
+<section id="ecosystem">
+  <div class="container">
+    <div class="section-head fade-in">
+      <span class="eyebrow">The Platforms</span>
+      <h2>One Population. Every Stage of the Journey.</h2>
+    </div>
+
+    <div class="flow-bar fade-in">
+      <span class="flow-pill pill-crisis">Crisis</span>
+      <span class="flow-pill pill-stabilization">Stabilization</span>
+      <span class="flow-pill pill-reintegration">Reintegration</span>
+      <span class="flow-pill pill-independence">Independence</span>
+    </div>
+
+    <div class="card-grid">
+      <div class="platform-card fade-in">
+        <span class="stage-badge" style="background:var(--red);">Crisis</span>
+        <h3>TentCity</h3>
+        <p>A free resource directory connecting people in crisis to shelters, food, and emergency services near them.</p>
+        <a href="https://tentcity.app" target="_blank" rel="noopener" class="btn btn-dark-outline">Visit TentCity</a>
+      </div>
+      <div class="platform-card fade-in">
+        <span class="stage-badge" style="background:var(--gold); color:var(--navy);">Stabilization</span>
+        <h3>BridgeWork</h3>
+        <p>A same-day task marketplace helping people in hardship earn cash today — no background check required.</p>
+        <a href="#" target="_blank" rel="noopener" class="btn btn-dark-outline">Visit BridgeWork<span class="ph-badge">PLACEHOLDER</span></a>
+      </div>
+      <div class="platform-card fade-in">
+        <span class="stage-badge" style="background:var(--green);">Reintegration</span>
+        <h3>OSAAT</h3>
+        <p>A reintegration platform that rewards people with real cash for hitting life milestones and rebuilding.</p>
+        <a href="#" target="_blank" rel="noopener" class="btn btn-dark-outline">Learn More<span class="ph-badge">PLACEHOLDER</span></a>
+      </div>
+      <div class="platform-card fade-in">
+        <span class="stage-badge" style="background:var(--navy);">Infrastructure</span>
+        <h3>WeStackr</h3>
+        <p>A collective crowdfunding platform that funds OSAAT rewards and BridgeWork operations.</p>
+        <a href="#" target="_blank" rel="noopener" class="btn btn-dark-outline">Visit WeStackr<span class="ph-badge">PLACEHOLDER</span></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= STORY SCROLL ================= -->
+<section id="story" class="dark">
+  <div class="container">
+    <div class="story-top fade-in">
+      <span class="eyebrow">Before the Breakthrough</span>
+      <h2>The story of Many Ways Up — told two ways at once.</h2>
+    </div>
+
+    <div class="story-labels">
+      <span class="label-left">The Story</span>
+      <span class="label-right">The Real World</span>
+    </div>
+
+    <div class="chapter fade-in">
+      <div class="chapter-ref"><span>Reference: LLC Registration</span></div>
+      <div class="chapter-col left">
+        <span class="chapter-num">Chapter 1</span>
+        <p>There was once a boy who noticed things others walked past. He saw people struggling and could not stop thinking about how to help. He had no money, no tools, and no name yet — just ideas and a dog.</p>
+      </div>
+      <div class="chapter-col right">
+        <span class="chapter-num">Chapter 1</span>
+        <p>Many Ways Up began as an idea before it had a name or a single platform. Just a founder who saw a gap nobody else was filling and could not walk away from it.</p>
+      </div>
+    </div>
+
+    <div class="chapter fade-in">
+      <div class="chapter-ref"><span>Reference: Entity Formation — LLC Registered</span></div>
+      <div class="chapter-col left">
+        <span class="chapter-num">Chapter 2</span>
+        <p>One day the boy walked to the town hall and told them who he was. They wrote his name in a big book. From that day on when he knocked on doors people listened differently. He had a name now.</p>
+      </div>
+      <div class="chapter-col right">
+        <span class="chapter-num">Chapter 2</span>
+        <p>Many Ways Up LLC is officially registered with the State of Minnesota. EIN obtained. The organization exists on paper and in the world.</p>
+      </div>
+    </div>
+
+    <div class="chapter fade-in">
+      <div class="chapter-ref"><span>Reference: TentCity, BridgeWork &amp; OSAAT</span></div>
+      <div class="chapter-col left">
+        <span class="chapter-num">Chapter 3</span>
+        <p>The boy built three things with his own hands. A board that showed people where to find help. A fence where people could post small jobs and earn money. A game where good steps earned real rewards.</p>
+      </div>
+      <div class="chapter-col right">
+        <span class="chapter-num">Chapter 3</span>
+        <p>TentCity. BridgeWork. OSAAT. Three platforms built and ready — serving crisis, stabilization, and reintegration across Minneapolis and beyond.</p>
+      </div>
+    </div>
+
+    <div class="chapter fade-in">
+      <div class="chapter-ref"><span>Reference: WeStackr &amp; Platform Outreach</span></div>
+      <div class="chapter-col left">
+        <span class="chapter-num">Chapter 4</span>
+        <p>The boy could not be everywhere at once. But the dog could. Every morning the dog ran through the neighborhood finding the people who needed the board, the fence, and the game. The dog never got tired.</p>
+      </div>
+      <div class="chapter-col right">
+        <span class="chapter-num">Chapter 4</span>
+        <p>WeStackr powers the mission — funding OSAAT rewards and BridgeWork operations through collective crowdfunding. The ecosystem never stops moving toward the people who need it most.</p>
+      </div>
+    </div>
+
+    <div class="chapter fade-in">
+      <div class="chapter-ref"><span>Reference: Hennepin County Renters Grace Period Act Petition</span></div>
+      <div class="chapter-col left">
+        <span class="chapter-num">Chapter 5</span>
+        <p>One thing bothered the boy more than anything. People who fell on hard times lost their homes too fast. There was no second chance built into the rules. So the boy wrote a letter and asked his neighbors to sign it.</p>
+      </div>
+      <div class="chapter-col right">
+        <span class="chapter-num">Chapter 5</span>
+        <p>The Hennepin County Renters Grace Period Act — a petition proposing two months of protection for renters in crisis. Live now on Change.org. Add your name.</p>
+        <a href="https://c.org/vXFhNccRyn" target="_blank" rel="noopener" class="btn btn-primary petition-btn">Sign the Petition</a>
+      </div>
+    </div>
+
+    <div class="chapter fade-in">
+      <div class="chapter-ref"><span>Reference: Neighbors Grow — Future Platform Concept</span></div>
+      <div class="chapter-col left">
+        <span class="chapter-num">Chapter 6</span>
+        <p>In a small corner of the yard the boy had planted a tomato. It grew more than he could eat. The dog led him to a neighbor who was hungry. He left the tomatoes on her doorstep. She left a note back saying thank you.</p>
+      </div>
+      <div class="chapter-col right">
+        <span class="chapter-num">Chapter 6</span>
+        <p>Neighbors Grow — a future platform connecting community gardeners with people experiencing food insecurity. The idea is in the notebook. The build is coming.</p>
+      </div>
+    </div>
+
+    <div class="chapter fade-in">
+      <div class="chapter-ref"><span>Reference: Business Credit Building</span></div>
+      <div class="chapter-col left">
+        <span class="chapter-num">Chapter 7</span>
+        <p>The boy had bigger plans. He needed tools he did not have. The hardware store owner said — I like your ideas. But I need to know you return what you borrow before I give you the good tools. So the boy started small.</p>
+      </div>
+      <div class="chapter-col right">
+        <span class="chapter-num">Chapter 7</span>
+        <p>Business credit building — net-30 vendor accounts open, PAYDEX score climbing, financial foundation being built. The capital that funds the mission starts here.</p>
+      </div>
+    </div>
+
+    <div class="chapter fade-in" style="border-bottom:none;">
+      <div class="chapter-ref"><span>Reference: The Unfinished Story — Volume 1 Ends Here</span></div>
+      <div class="chapter-col left">
+        <span class="chapter-num">Chapter 8</span>
+        <p>The boy had not finished yet. The dog was still running. The tomato plant had more seeds. The hardware store owner was starting to trust him with bigger tools. He did not know exactly what came next. But he kept going.</p>
+      </div>
+      <div class="chapter-col right">
+        <span class="chapter-num">Chapter 8</span>
+        <p>Volume 1 ends here. The Many Ways Up story is still being written. The platforms are built. The petition is live. The breakthrough is coming. Follow the journey.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= BOOK ================= -->
+<section id="book">
+  <div class="container">
+    <div class="section-head fade-in">
+      <span class="eyebrow">The Book</span>
+      <h2>The Boy, The Dog, and the Tomato</h2>
+    </div>
+    <p class="subhead fade-in">Volume 1 — The Beginning</p>
+    <p class="desc fade-in">A children's book that tells the Many Ways Up origin story. A child reads it as a story about a boy helping his neighborhood. An adult reads it as the documented journey of building something real from nothing. Volume 1 is sold unfinished — because the story is still happening.</p>
+
+    <div class="product-grid" style="grid-template-columns:minmax(260px,340px); justify-content:center;">
+      <div class="product-card fade-in">
+        <h4>Digital PDF — Volume 1</h4>
+        <div class="price">$7.99</div>
+        <a href="The-Boy-The-Dog-and-the-Tomato-Volume-1.pdf" download target="_blank" rel="noopener" class="btn btn-primary btn-block">Download the Book</a>
+        <p class="small" style="margin-top:6px;">Paid checkout coming soon<span class="ph-badge">PLACEHOLDER PAYMENT LINK</span></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= FOUNDATION TRACKER ================= -->
+<section id="foundation" class="dark">
+  <div class="container">
+    <div class="section-head fade-in">
+      <span class="eyebrow">Before the Breakthrough</span>
+      <h2>Building in Public — Every Step Documented.</h2>
+      <p>Most organizations only show up when they are already successful. Many Ways Up is showing the foundation being poured in real time. Every milestone shared. Nothing hidden.</p>
+    </div>
+
+    <div class="milestone-grid">
+      <div class="milestone-card done fade-in">
+        <div class="milestone-icon">✓</div>
+        <h3>The Entity</h3>
+        <p>Many Ways Up LLC registered with the State of Minnesota. EIN obtained.</p>
+      </div>
+      <div class="milestone-card done fade-in">
+        <div class="milestone-icon">✓</div>
+        <h3>The Catalyst</h3>
+        <p>The Hennepin County Renters Grace Period Act petition is live. The mission is public.</p>
+      </div>
+      <div class="milestone-card pending fade-in">
+        <div class="milestone-icon"></div>
+        <h3>The First Credit</h3>
+        <p>Net-30 vendor accounts open. Business credit file being built.</p>
+      </div>
+      <div class="milestone-card pending fade-in">
+        <div class="milestone-icon"></div>
+        <h3>The Milestone</h3>
+        <p>PAYDEX score hits 80. Many Ways Up becomes creditworthy.</p>
+      </div>
+      <div class="milestone-card pending fade-in">
+        <div class="milestone-icon"></div>
+        <h3>The Application</h3>
+        <p>First grant and loan applications submitted.</p>
+      </div>
+      <div class="milestone-card pending fade-in">
+        <div class="milestone-icon"></div>
+        <h3>The Breakthrough</h3>
+        <p>Loan approved. First BridgeWork tasks funded. First OSAAT users earning cash.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= DAILY BUILDER LOG ================= -->
+<section id="dailylog">
+  <div class="container">
+    <div class="section-head fade-in">
+      <span class="eyebrow">The Daily Log</span>
+      <h2>Watch the Mission Get Built — Every Single Day.</h2>
+      <p>Every business day Jermaine Patterson posts a real update from inside the build. What got done. What broke. What's next. No filter. No corporate speak. Just the honest daily journal of someone building something that matters from the ground up in Minneapolis.</p>
+    </div>
+
+    <div class="log-grid">
+      <div class="log-card fade-in">
+        <span class="log-date">Day 1</span>
+        <p>Many Ways Up LLC is now a registered business. The EIN is in. The bank account application is in. Three things that didn't exist yesterday exist today. The foundation starts here.</p>
+      </div>
+      <div class="log-card fade-in">
+        <span class="log-date">Day 12</span>
+        <p>The petition is live on Change.org. First signatures coming in. Posted on Reddit this morning. The mission is public now — no taking it back.</p>
+      </div>
+      <div class="log-card fade-in">
+        <span class="log-date">Day 31</span>
+        <p>First Sponsor a Builder conversation happened today. Nothing closed yet but someone is paying attention. That's enough for today.</p>
+      </div>
+    </div>
+
+    <div class="log-below fade-in">
+      <p>These are real entries. Subscribe to get every update delivered.</p>
+      <a href="#support" class="btn btn-primary">See Subscription Options</a>
+    </div>
+  </div>
+</section>
+
+<!-- ================= SUPPORT ================= -->
+<section id="support">
+  <div class="container">
+    <div class="section-head fade-in">
+      <span class="eyebrow">Become a Builder</span>
+      <h2>Support the Mission. Follow the Journey.</h2>
+      <p>Every supporter helps fund the development and expansion of Many Ways Up.</p>
+    </div>
+
+    <div class="support-grid">
+      <div class="support-card fade-in">
+        <h3>Neighbor</h3>
+        <div class="price">$4.99/mo</div>
+        <p class="tagline">Get the daily builder log delivered every business day. Follow the real journey of building Many Ways Up from the ground up.</p>
+        <ul>
+          <li>Daily log access every business day</li>
+          <li>Monthly community update</li>
+          <li>Follow the journey from day one</li>
+        </ul>
+        <a href="https://linktr.ee/ManyWaysUpLLC" target="_blank" rel="noopener" class="btn btn-dark-outline">Become a Neighbor</a>
+      </div>
+
+      <div class="support-card highlight fade-in">
+        <span class="highlight-tag">Most Popular</span>
+        <h3>Builder</h3>
+        <div class="price">$9.99/mo</div>
+        <p class="tagline">Everything in Neighbor plus a weekly behind the scenes breakdown of what's being built, what's working, and what's not.</p>
+        <ul>
+          <li>Daily log access every business day</li>
+          <li>Weekly behind the scenes breakdown</li>
+          <li>Development progress updates</li>
+          <li>Builder recognition on the website</li>
+        </ul>
+        <a href="https://linktr.ee/ManyWaysUpLLC" target="_blank" rel="noopener" class="btn btn-primary">Become a Builder</a>
+      </div>
+
+      <div class="support-card fade-in">
+        <h3>Founding Supporter</h3>
+        <div class="price">$24.99/mo</div>
+        <p class="tagline">Everything in Builder plus a weekly live Q&A with the founder. You're not just following the mission — you're helping shape it.</p>
+        <ul>
+          <li>Daily log access every business day</li>
+          <li>Weekly behind the scenes breakdown</li>
+          <li>Weekly Q&A with Jermaine Patterson</li>
+          <li>Founding Supporter recognition in Volume 2 of the book</li>
+          <li>First access to platform launches</li>
+        </ul>
+        <a href="https://linktr.ee/ManyWaysUpLLC" target="_blank" rel="noopener" class="btn btn-dark-outline">Become a Founding Supporter</a>
+      </div>
+    </div>
+
+    <div class="one-time-grid fade-in">
+      <a href="https://linktr.ee/ManyWaysUpLLC" target="_blank" rel="noopener" class="one-time-card">
+        <div class="amt">$500</div>
+        <div>Project Accelerator</div>
+      </a>
+      <a href="https://linktr.ee/ManyWaysUpLLC" target="_blank" rel="noopener" class="one-time-card">
+        <div class="amt">$1,000</div>
+        <div>Mission Builder</div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ================= IMPACT ================= -->
+<section id="impact">
+  <div class="container">
+    <div class="section-head fade-in">
+      <span class="eyebrow">The Impact</span>
+      <h2>By the Numbers</h2>
+      <p>Updated as the mission grows.</p>
+    </div>
+
+    <div class="metric-grid">
+      <div class="metric-tile fade-in">
+        <div class="num">4</div>
+        <div class="label">Platforms Built</div>
+      </div>
+      <div class="metric-tile fade-in">
+        <div class="num">0</div>
+        <div class="label">Petition Signatures</div>
+      </div>
+      <div class="metric-tile fade-in">
+        <div class="num">0</div>
+        <div class="label">Email List Members</div>
+      </div>
+      <div class="metric-tile fade-in">
+        <div class="num">0</div>
+        <div class="label">Resources on TentCity</div>
+      </div>
+      <div class="metric-tile fade-in">
+        <div class="num">0</div>
+        <div class="label">Tasks on BridgeWork</div>
+      </div>
+      <div class="metric-tile fade-in">
+        <div class="num">0</div>
+        <div class="label">Community Partners</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= EMAIL SIGNUP ================= -->
+<section id="emailsignup">
+  <div class="container">
+    <h2>Follow the Journey</h2>
+    <p>Get updates as Many Ways Up builds toward the breakthrough. No spam. Just real progress.</p>
+    <form class="email-form" action="https://preview.mailerlite.io/forms/2481738/191734057561752772/share" method="get" target="_blank">
+      <input type="email" name="email" placeholder="Enter your email" required>
+      <button type="submit" class="btn btn-primary">Join the Community</button>
+    </form>
+  </div>
+</section>
+
+<!-- ================= FOOTER ================= -->
+<footer>
+  <div class="container footer-grid">
+    <div>
+      <h4>Many Ways Up LLC</h4>
+      <p>Minneapolis, Minnesota</p>
+      <p>ourtentcity@gmail.com</p>
+    </div>
+    <div>
+      <h4>Quick Links</h4>
+      <a href="https://c.org/vXFhNccRyn" target="_blank" rel="noopener">Sign the Petition</a>
+      <a href="https://linktr.ee/ManyWaysUpLLC" target="_blank" rel="noopener">Support the Mission</a>
+      <a href="https://preview.mailerlite.io/forms/2481738/191734057561752772/share" target="_blank" rel="noopener">Follow the Journey</a>
+    </div>
+    <div>
+      <h4>Follow Along</h4>
+      <div class="social-icons">
+        <a href="#" target="_blank" rel="noopener" title="Facebook — PLACEHOLDER" aria-label="Facebook">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M13.5 21v-8h2.7l.4-3.2h-3.1V7.7c0-.9.25-1.5 1.55-1.5H16.7V3.3C16.4 3.25 15.4 3.15 14.2 3.15c-2.4 0-4 1.45-4 4.1V9.8H7.5V13h2.7v8h3.3Z" fill="#fff"/></svg>
+        </a>
+        <a href="#" target="_blank" rel="noopener" title="Instagram — PLACEHOLDER" aria-label="Instagram">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><rect x="3" y="3" width="18" height="18" rx="5" stroke="#fff" stroke-width="1.6"/><circle cx="12" cy="12" r="4" stroke="#fff" stroke-width="1.6"/><circle cx="17.2" cy="6.8" r="1.1" fill="#fff"/></svg>
+        </a>
+      </div>
+      <span class="ph-badge" style="margin-left:0; margin-top:10px;">Social links: PLACEHOLDER</span>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>Building technology for the people who need it most.</span>
+    <span>|</span>
+    <span>&copy; 2026 Many Ways Up LLC</span>
+  </div>
+</footer>
+
+<script>
+  // Fade-in on scroll
+  const faders = document.querySelectorAll('.fade-in');
+  const appearOnScroll = new IntersectionObserver((entries, observer) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.15, rootMargin: '0px 0px -60px 0px' });
+  faders.forEach(el => appearOnScroll.observe(el));
+
+  // Subtle particle background for hero
+  const canvas = document.getElementById('particles');
+  const ctx = canvas.getContext('2d');
+  let w, h, particles = [];
+
+  function resize() {
+    w = canvas.width = canvas.offsetWidth;
+    h = canvas.height = canvas.offsetHeight;
+  }
+  window.addEventListener('resize', resize);
+  resize();
+
+  const COUNT = Math.min(60, Math.floor((window.innerWidth * window.innerHeight) / 22000));
+  for (let i = 0; i < COUNT; i++) {
+    particles.push({
+      x: Math.random() * w,
+      y: Math.random() * h,
+      r: Math.random() * 1.4 + 0.4,
+      dx: (Math.random() - 0.5) * 0.15,
+      dy: (Math.random() - 0.5) * 0.15,
+      o: Math.random() * 0.25 + 0.05
+    });
+  }
+
+  function animate() {
+    ctx.clearRect(0, 0, w, h);
+    particles.forEach(p => {
+      p.x += p.dx;
+      p.y += p.dy;
+      if (p.x < 0 || p.x > w) p.dx *= -1;
+      if (p.y < 0 || p.y > h) p.dy *= -1;
+      ctx.beginPath();
+      ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+      ctx.fillStyle = `rgba(255,255,255,${p.o})`;
+      ctx.fill();
+    });
+    requestAnimationFrame(animate);
+  }
+  animate();
+</script>
+</body>
+</html>
