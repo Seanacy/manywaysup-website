@@ -517,22 +517,6 @@
   }
   .one-time-card .amt{font-family:'Playfair Display', serif; font-size:26px; color:var(--navy); margin-bottom:10px;}
  
-  /* ---------- IMPACT ---------- */
-  #impact{background:var(--grey);}
-  .metric-grid{
-    display:grid;
-    grid-template-columns:repeat(3,1fr);
-    gap:20px;
-  }
-  .metric-tile{
-    background:var(--white);
-    border-radius:14px;
-    padding:32px 16px;
-    text-align:center;
-  }
-  .metric-tile .num{font-family:'Playfair Display', serif; font-size:40px; font-weight:800; color:var(--navy);}
-  .metric-tile .label{font-size:13px; color:#666; margin-top:8px; text-transform:uppercase; letter-spacing:0.5px;}
- 
   /* ---------- EMAIL ---------- */
   #emailsignup{background:var(--navy); color:var(--white); text-align:center;}
   #emailsignup h2{color:var(--white); font-size:clamp(26px,4vw,38px); margin-bottom:14px;}
@@ -586,14 +570,11 @@
   }
  
   @media (max-width:820px){
-    .card-grid, .product-grid, .milestone-grid, .log-grid, .support-grid, .metric-grid, .footer-grid{
+    .card-grid, .product-grid, .milestone-grid, .log-grid, .support-grid, .footer-grid{
       grid-template-columns:1fr;
     }
     .one-time-grid{grid-template-columns:1fr;}
     section{padding:56px 0;}
-  }
-  @media (min-width:821px) and (max-width:1080px){
-    .metric-grid{grid-template-columns:repeat(3,1fr);}
   }
 </style>
 </head>
@@ -965,44 +946,6 @@
         <div class="amt">$1,000</div>
         <div>Mission Builder</div>
       </a>
-    </div>
-  </div>
-</section>
- 
-<!-- ================= IMPACT ================= -->
-<section id="impact">
-  <div class="container">
-    <div class="section-head fade-in">
-      <span class="eyebrow">The Impact</span>
-      <h2>By the Numbers</h2>
-      <p>Updated as the mission grows.</p>
-    </div>
- 
-    <div class="metric-grid">
-      <div class="metric-tile fade-in">
-        <div class="num">4</div>
-        <div class="label">Platforms Built</div>
-      </div>
-      <div class="metric-tile fade-in">
-        <div class="num">0</div>
-        <div class="label">Petition Signatures</div>
-      </div>
-      <div class="metric-tile fade-in">
-        <div class="num">0</div>
-        <div class="label">Email List Members</div>
-      </div>
-      <div class="metric-tile fade-in">
-        <div class="num">0</div>
-        <div class="label">Resources on TentCity</div>
-      </div>
-      <div class="metric-tile fade-in">
-        <div class="num">0</div>
-        <div class="label">Tasks on BridgeWork</div>
-      </div>
-      <div class="metric-tile fade-in">
-        <div class="num">0</div>
-        <div class="label">Community Partners</div>
-      </div>
     </div>
   </div>
 </section>
