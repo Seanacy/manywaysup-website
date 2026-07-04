@@ -361,6 +361,24 @@
   .product-card p.small{font-size:14px; color:#666;}
   .product-card .btn{margin-top:10px;}
  
+  .book-purchase-row{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:36px;
+    flex-wrap:wrap;
+  }
+  .book-illustration{
+    width:220px;
+    height:280px;
+    object-fit:cover;
+    border-radius:16px;
+    box-shadow:0 12px 30px rgba(0,0,0,0.14);
+  }
+  @media (max-width:900px){
+    .book-illustration{display:none;}
+  }
+ 
   /* ---------- FOUNDATION TRACKER ---------- */
   #foundation{background:var(--navy); color:var(--white);}
   #foundation .section-head .eyebrow{color:var(--gold);}
@@ -779,13 +797,17 @@
     <p class="subhead fade-in">Volume 1 — The Beginning</p>
     <p class="desc fade-in">A children's book that tells the Many Ways Up origin story. A child reads it as a story about a boy helping his neighborhood. An adult reads it as the documented journey of building something real from nothing. Volume 1 is sold unfinished — because the story is still happening.</p>
  
-    <div class="product-grid" style="grid-template-columns:minmax(260px,340px); justify-content:center;">
-      <div class="product-card fade-in">
-        <h4>Digital PDF — Volume 1</h4>
-        <div class="price">$7.99</div>
-        <a href="https://buy.stripe.com/aFa8wR4zo2RJ1Fe9HG3VC05" target="_blank" rel="noopener" class="btn btn-primary btn-block">Buy Now</a>
-        <p class="small" style="margin-top:6px;">Secure checkout. The download unlocks automatically after payment is verified.</p>
+    <div class="book-purchase-row">
+      <img src="book-illustration-left.jpg" alt="Illustration from The Boy, The Dog, and the Tomato" class="book-illustration fade-in">
+      <div class="product-grid" style="grid-template-columns:minmax(260px,340px); justify-content:center;">
+        <div class="product-card fade-in">
+          <h4>Digital PDF — Volume 1</h4>
+          <div class="price">$7.99</div>
+          <a href="https://buy.stripe.com/aFa8wR4zo2RJ1Fe9HG3VC05" target="_blank" rel="noopener" class="btn btn-primary btn-block">Buy Now</a>
+          <p class="small" style="margin-top:6px;">Secure checkout. The download unlocks automatically after payment is verified.</p>
+        </div>
       </div>
+      <img src="book-illustration-right.jpg" alt="Illustration from The Boy, The Dog, and the Tomato" class="book-illustration fade-in">
     </div>
   </div>
 </section>
