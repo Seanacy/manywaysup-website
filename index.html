@@ -58,7 +58,7 @@
   .section-head p{margin-top:14px; font-size:16px; color:#555; font-weight:400;}
   .dark .section-head h2{color:var(--white);}
   .dark .section-head p{color:var(--text-grey);}
- 
+
   /* Buttons */
   .btn{
     display:inline-flex;
@@ -79,8 +79,9 @@
   .btn-outline{background:transparent; color:var(--white); border-color:rgba(255,255,255,0.5);}
   .btn-outline:hover{border-color:var(--white);}
   .btn-dark-outline{background:transparent; color:var(--navy); border-color:var(--navy);}
+  .btn-red{background:var(--red); color:var(--white);}
   .btn-block{width:100%;}
- 
+
   .ph-badge{
     display:inline-block;
     font-size:10px;
@@ -93,11 +94,11 @@
     margin-left:8px;
     vertical-align:middle;
   }
- 
+
   /* Fade in */
   .fade-in{opacity:0; transform:translateY(24px); transition:opacity .8s ease, transform .8s ease;}
   .fade-in.visible{opacity:1; transform:translateY(0);}
- 
+
   /* ---------- HEADER ---------- */
   .site-header{
     position:sticky;
@@ -130,10 +131,67 @@
     text-transform:uppercase;
   }
   .header-inner .btn{
-    padding:9px 18px;
-    font-size:13px;
+    padding:8px 14px;
+    font-size:12.5px;
+    white-space:nowrap;
   }
- 
+
+  /* ---------- NAV ---------- */
+  .main-nav{display:flex; align-items:center; gap:14px;}
+  .nav-link{font-size:13.5px; font-weight:700; color:var(--navy); white-space:nowrap;}
+  .nav-link:hover{color:var(--green);}
+  .nav-link.nav-highlight{
+    background:var(--gold);
+    color:var(--navy);
+    padding:8px 14px;
+    border-radius:8px;
+    white-space:nowrap;
+  }
+  .nav-link.nav-highlight-red{
+    background:var(--red);
+    color:var(--white);
+  }
+  .nav-toggle{
+    display:none;
+    flex-direction:column;
+    justify-content:center;
+    gap:5px;
+    width:34px; height:34px;
+    background:none; border:none; cursor:pointer;
+    padding:0;
+  }
+  .nav-toggle span{
+    display:block; width:100%; height:2px; background:var(--navy);
+    transition:transform .2s ease, opacity .2s ease;
+  }
+  .nav-toggle.open span:nth-child(1){transform:translateY(7px) rotate(45deg);}
+  .nav-toggle.open span:nth-child(2){opacity:0;}
+  .nav-toggle.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg);}
+
+  @media (max-width:640px){
+    .nav-toggle{display:flex;}
+    .main-nav{
+      position:absolute;
+      top:100%; left:0; right:0;
+      background:var(--white);
+      flex-direction:column;
+      align-items:stretch;
+      gap:0;
+      max-height:0;
+      overflow:hidden;
+      box-shadow:0 8px 20px rgba(0,0,0,0.08);
+      transition:max-height .25s ease;
+    }
+    .main-nav.open{max-height:220px;}
+    .main-nav a{
+      padding:16px 24px !important;
+      border-radius:0 !important;
+      width:100%;
+      text-align:center;
+      border-bottom:1px solid #eee;
+    }
+  }
+
   /* ---------- PETITION BANNER ---------- */
   .petition-banner{
     background:#16294F;
@@ -159,7 +217,7 @@
   .petition-banner .btn{
     padding:13px 28px;
   }
- 
+
   /* ---------- HERO ---------- */
   #hero{
     min-height:100vh;
@@ -188,7 +246,7 @@
     margin:0 auto 36px;
   }
   .hero-buttons{display:flex; flex-wrap:wrap; gap:16px; justify-content:center;}
- 
+
   /* ---------- ECOSYSTEM ---------- */
   #ecosystem{background:var(--white);}
   .flow-bar{
@@ -211,7 +269,7 @@
   .pill-stabilization{background:var(--gold); color:var(--navy);}
   .pill-reintegration{background:var(--green);}
   .pill-independence{background:var(--navy);}
- 
+
   .card-grid{
     display:grid;
     grid-template-columns:1fr 1fr;
@@ -238,7 +296,7 @@
   .platform-card h3{font-family:'Inter',sans-serif; font-size:22px; font-weight:700; color:var(--text-dark);}
   .platform-card p{color:#555; font-size:15px;}
   .platform-card .btn{align-self:flex-start; margin-top:8px;}
- 
+
   /* ---------- STORY SCROLL ---------- */
   #story{background:var(--navy); color:var(--white);}
   .story-top{text-align:center; max-width:680px; margin:0 auto 60px;}
@@ -319,7 +377,7 @@
     .chapter-ref{margin-bottom:14px;}
   }
   .petition-btn{margin-top:16px;}
- 
+
   @media (max-width:720px){
     .chapter{grid-template-columns:1fr;}
     .chapter::before{display:none;}
@@ -327,7 +385,7 @@
     .story-labels{grid-template-columns:1fr; gap:6px; margin-bottom:8px;}
     .story-labels .label-right{display:none;}
   }
- 
+
   /* ---------- BOOK ---------- */
   #book{background:var(--offwhite);}
   #book .section-head .eyebrow{color:var(--green);}
@@ -360,7 +418,7 @@
   .product-card .price{font-family:'Playfair Display', serif; font-size:32px; color:var(--navy); font-weight:700;}
   .product-card p.small{font-size:14px; color:#666;}
   .product-card .btn{margin-top:10px;}
- 
+
   .book-purchase-row{
     display:flex;
     align-items:center;
@@ -378,7 +436,7 @@
   @media (max-width:900px){
     .book-illustration{display:none;}
   }
- 
+
   /* ---------- FOUNDATION TRACKER ---------- */
   #foundation{background:var(--navy); color:var(--white);}
   #foundation .section-head .eyebrow{color:var(--gold);}
@@ -407,7 +465,7 @@
   .milestone-card.pending .milestone-icon{background:transparent; border:2px solid rgba(255,255,255,0.3);}
   .milestone-card h3{font-family:'Inter',sans-serif; font-size:17px; margin-bottom:8px; color:var(--white);}
   .milestone-card p{font-size:14px; color:var(--text-grey);}
- 
+
   /* ---------- DAILY LOG ---------- */
   #dailylog{background:var(--white);}
   .log-grid{
@@ -435,9 +493,41 @@
   .log-card p{font-size:14.5px; color:#3a3a3a;}
   .log-below{text-align:center;}
   .log-below p{color:#555; margin-bottom:20px; font-size:15px;}
- 
+
   /* ---------- SUPPORT ---------- */
   #support{background:var(--white);}
+  .founder-intro{
+    display:flex; align-items:center; gap:28px;
+    background:#fff; border:1px solid #e5e5e5; border-radius:16px;
+    padding:28px 32px; margin-bottom:40px;
+  }
+  .founder-avatar{
+    width:84px; height:84px; border-radius:50%;
+    background:var(--navy); color:var(--white);
+    display:flex; align-items:center; justify-content:center;
+    font-family:'Playfair Display', serif; font-size:32px; font-weight:700;
+    flex-shrink:0; overflow:hidden;
+  }
+  .founder-avatar img{width:100%; height:100%; object-fit:cover;}
+  .founder-intro p{color:#444; font-size:15px; line-height:1.6; margin:0 0 10px 0;}
+  .founder-intro p:last-child{margin-bottom:0;}
+  .founder-intro strong{color:var(--text-dark);}
+  @media(max-width:600px){.founder-intro{flex-direction:column; text-align:center;}}
+  .daily-update-box{
+    margin-top:16px;
+    padding-top:16px;
+    border-top:1px dashed #ddd;
+  }
+  .daily-update-label{
+    display:block;
+    font-size:11px;
+    font-weight:800;
+    letter-spacing:1px;
+    text-transform:uppercase;
+    color:var(--green);
+    margin-bottom:6px;
+  }
+  .daily-update-box p{margin:0; color:#444; font-size:14.5px; line-height:1.6;}
   .support-grid{
     display:grid;
     grid-template-columns:repeat(3,1fr);
@@ -472,7 +562,7 @@
   .support-card ul li{font-size:14px; color:#444; padding-left:20px; position:relative;}
   .support-card ul li::before{content:"✓"; color:var(--green); position:absolute; left:0; font-weight:700;}
   .support-card .btn{margin-top:auto;}
- 
+
   .tier-preview{
     border-radius:6px;
     padding:10px 12px;
@@ -501,7 +591,7 @@
     letter-spacing:0.5px;
     color:#999;
   }
- 
+
   .one-time-grid{
     display:grid;
     grid-template-columns:1fr 1fr;
@@ -516,7 +606,7 @@
     text-align:center;
   }
   .one-time-card .amt{font-family:'Playfair Display', serif; font-size:26px; color:var(--navy); margin-bottom:10px;}
- 
+
   /* ---------- EMAIL ---------- */
   #emailsignup{background:var(--navy); color:var(--white); text-align:center;}
   #emailsignup h2{color:var(--white); font-size:clamp(26px,4vw,38px); margin-bottom:14px;}
@@ -538,7 +628,7 @@
     font-size:15px;
     font-family:'Inter',sans-serif;
   }
- 
+
   /* ---------- FOOTER ---------- */
   footer{background:var(--navy); color:var(--white); padding-top:60px;}
   .footer-grid{
@@ -568,7 +658,7 @@
     justify-content:center;
     gap:8px;
   }
- 
+
   @media (max-width:820px){
     .card-grid, .product-grid, .milestone-grid, .log-grid, .support-grid, .footer-grid{
       grid-template-columns:1fr;
@@ -579,7 +669,7 @@
 </style>
 </head>
 <body>
- 
+
 <!-- ================= HEADER ================= -->
 <header class="site-header">
   <div class="container header-inner">
@@ -587,18 +677,28 @@
       <img src="mwu-icon.png" alt="Many Ways Up logo">
       <span>Many Ways Up</span>
     </div>
-    <a href="#support" class="btn btn-dark-outline">Support the Mission</a>
+    <nav class="main-nav" id="main-nav">
+      <a href="partners.html" class="nav-link">Partners</a>
+      <a href="founding-sponsors.html" class="nav-link">Sponsors</a>
+      <a href="future-projects.html" class="nav-link">What's Next</a>
+      <a href="petition.html" class="nav-link nav-highlight nav-highlight-red">Sign the Petition</a>
+      <a href="bridgework-campaign.html" class="nav-link nav-highlight">BridgeWork Campaign</a>
+      <a href="#support" class="btn btn-dark-outline">Subscribe</a>
+    </nav>
+    <button class="nav-toggle" id="nav-toggle" aria-label="Open menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
   </div>
 </header>
- 
+
 <!-- ================= PETITION BANNER ================= -->
 <section class="petition-banner">
   <span class="eyebrow">Before the Breakthrough</span>
   <h2>People who fall on hard times deserve a second chance before they lose their home.</h2>
   <p>Add your name to the Hennepin County Renters Grace Period Act.</p>
-  <a href="https://c.org/vXFhNccRyn" target="_blank" rel="noopener" class="btn btn-primary">Sign the Petition</a>
+  <a href="https://c.org/vXFhNccRyn" target="_blank" rel="noopener" class="btn btn-red">Sign the Petition</a>
 </section>
- 
+
 <!-- ================= HERO ================= -->
 <section id="hero">
   <canvas id="particles"></canvas>
@@ -611,7 +711,7 @@
     </div>
   </div>
 </section>
- 
+
 <!-- ================= ECOSYSTEM ================= -->
 <section id="ecosystem">
   <div class="container">
@@ -619,14 +719,14 @@
       <span class="eyebrow">The Platforms</span>
       <h2>One Population. Every Stage of the Journey.</h2>
     </div>
- 
+
     <div class="flow-bar fade-in">
       <span class="flow-pill pill-crisis">Crisis</span>
       <span class="flow-pill pill-stabilization">Stabilization</span>
       <span class="flow-pill pill-reintegration">Reintegration</span>
       <span class="flow-pill pill-independence">Independence</span>
     </div>
- 
+
     <div class="card-grid">
       <div class="platform-card fade-in">
         <span class="stage-badge" style="background:var(--red);">Crisis</span>
@@ -655,7 +755,7 @@
     </div>
   </div>
 </section>
- 
+
 <!-- ================= STORY SCROLL ================= -->
 <section id="story" class="dark">
   <div class="container">
@@ -663,12 +763,12 @@
       <span class="eyebrow">Before the Breakthrough</span>
       <h2>The story of Many Ways Up — told two ways at once.</h2>
     </div>
- 
+
     <div class="story-labels">
       <span class="label-left">The Story</span>
       <span class="label-right">The Real World</span>
     </div>
- 
+
     <div class="chapter fade-in">
       <div class="chapter-ref"><span>Reference: LLC Registration</span></div>
       <div class="chapter-col left">
@@ -680,7 +780,7 @@
         <p>Many Ways Up began as an idea before it had a name or a single platform. Just a founder who saw a gap nobody else was filling and could not walk away from it.</p>
       </div>
     </div>
- 
+
     <div class="chapter fade-in">
       <div class="chapter-ref"><span>Reference: Entity Formation — LLC Registered</span></div>
       <div class="chapter-col left">
@@ -692,7 +792,7 @@
         <p>Many Ways Up LLC is officially registered with the State of Minnesota. EIN obtained. The organization exists on paper and in the world.</p>
       </div>
     </div>
- 
+
     <div class="chapter fade-in">
       <div class="chapter-ref"><span>Reference: TentCity, BridgeWork &amp; OSAAT</span></div>
       <div class="chapter-col left">
@@ -704,7 +804,7 @@
         <p>TentCity. BridgeWork. OSAAT. Three platforms built and ready — serving crisis, stabilization, and reintegration across Minneapolis and beyond.</p>
       </div>
     </div>
- 
+
     <div class="chapter fade-in">
       <div class="chapter-ref"><span>Reference: WeStackr &amp; Platform Outreach</span></div>
       <div class="chapter-col left">
@@ -716,7 +816,7 @@
         <p>WeStackr powers the mission — funding OSAAT rewards and BridgeWork operations through collective crowdfunding. The ecosystem never stops moving toward the people who need it most.</p>
       </div>
     </div>
- 
+
     <div class="chapter fade-in">
       <div class="chapter-ref"><span>Reference: Hennepin County Renters Grace Period Act Petition</span></div>
       <div class="chapter-col left">
@@ -729,7 +829,7 @@
         <a href="https://c.org/vXFhNccRyn" target="_blank" rel="noopener" class="btn btn-primary petition-btn">Sign the Petition</a>
       </div>
     </div>
- 
+
     <div class="chapter fade-in">
       <div class="chapter-ref"><span>Reference: Neighbors Grow — Future Platform Concept</span></div>
       <div class="chapter-col left">
@@ -741,7 +841,7 @@
         <p>Neighbors Grow — a future platform connecting community gardeners with people experiencing food insecurity. The idea is in the notebook. The build is coming.</p>
       </div>
     </div>
- 
+
     <div class="chapter fade-in">
       <div class="chapter-ref"><span>Reference: Business Credit Building</span></div>
       <div class="chapter-col left">
@@ -753,7 +853,7 @@
         <p>Business credit building — net-30 vendor accounts open, PAYDEX score climbing, financial foundation being built. The capital that funds the mission starts here.</p>
       </div>
     </div>
- 
+
     <div class="chapter fade-in" style="border-bottom:none;">
       <div class="chapter-ref"><span>Reference: The Unfinished Story — Volume 1 Ends Here</span></div>
       <div class="chapter-col left">
@@ -767,7 +867,7 @@
     </div>
   </div>
 </section>
- 
+
 <!-- ================= BOOK ================= -->
 <section id="book">
   <div class="container">
@@ -777,7 +877,7 @@
     </div>
     <p class="subhead fade-in">Volume 1 — The Beginning</p>
     <p class="desc fade-in">A children's book that tells the Many Ways Up origin story. A child reads it as a story about a boy helping his neighborhood. An adult reads it as the documented journey of building something real from nothing. Volume 1 is sold unfinished — because the story is still happening.</p>
- 
+
     <div class="book-purchase-row">
       <img src="book-illustration-left.jpg" alt="Illustration from The Boy, The Dog, and the Tomato" class="book-illustration fade-in">
       <div class="product-grid" style="grid-template-columns:minmax(260px,340px); justify-content:center;">
@@ -792,7 +892,7 @@
     </div>
   </div>
 </section>
- 
+
 <!-- ================= FOUNDATION TRACKER ================= -->
 <section id="foundation" class="dark">
   <div class="container">
@@ -801,7 +901,7 @@
       <h2>Building in Public — Every Step Documented.</h2>
       <p>Most organizations only show up when they are already successful. Many Ways Up is showing the foundation being poured in real time. Every milestone shared. Nothing hidden.</p>
     </div>
- 
+
     <div class="milestone-grid">
       <div class="milestone-card done fade-in">
         <div class="milestone-icon">✓</div>
@@ -836,7 +936,7 @@
     </div>
   </div>
 </section>
- 
+
 <!-- ================= DAILY BUILDER LOG ================= -->
 <section id="dailylog">
   <div class="container">
@@ -845,7 +945,7 @@
       <h2>Watch the Mission Get Built — Every Single Day.</h2>
       <p>Every business day Jermaine Patterson posts a real update from inside the build. What got done. What broke. What's next. No filter. No corporate speak. Just the honest daily journal of someone building something that matters from the ground up in Minneapolis.</p>
     </div>
- 
+
     <div class="log-grid">
       <div class="log-card fade-in">
         <span class="log-date">Day 1</span>
@@ -860,14 +960,14 @@
         <p>First Sponsor a Builder conversation happened today. Nothing closed yet but someone is paying attention. That's enough for today.</p>
       </div>
     </div>
- 
+
     <div class="log-below fade-in">
       <p>These are real entries. Subscribe to get every update delivered.</p>
       <a href="#support" class="btn btn-primary">See Subscription Options</a>
     </div>
   </div>
 </section>
- 
+
 <!-- ================= SUPPORT ================= -->
 <section id="support">
   <div class="container">
@@ -876,7 +976,20 @@
       <h2>Support the Mission. Follow the Journey.</h2>
       <p>Every supporter helps fund the development and expansion of Many Ways Up.</p>
     </div>
- 
+
+    <div class="founder-intro fade-in">
+      <div class="founder-avatar"><img src="jermaine.jpg" alt="Jermaine Patterson, founder of Many Ways Up"></div>
+      <div>
+        <p><strong id="mwu-founder-name">Hi, I'm Jermaine.</strong></p>
+        <p id="mwu-founder-p1">I'm building Many Ways Up to help people find real resources fast and so people can earn money the same day instead of waiting on an application. I saw a way to help where nobody else was stepping in, so I made it my job.</p>
+        <p id="mwu-founder-p2">This isn't a company with a big team behind it. It's me, building this in the open. The EIN, the website, the Stripe setup, BridgeWork testing all logged as it happens. When you subscribe, you're not donating into a black hole. You're covering what it actually costs to keep this running and funding the next thing that gets built, and you'll watch it happen in real time.</p>
+        <div class="daily-update-box" id="mwu-daily-update-box" style="display:none;">
+          <span class="daily-update-label">Latest Update</span>
+          <p id="mwu-daily-update"></p>
+        </div>
+      </div>
+    </div>
+
     <div class="support-grid">
       <div class="support-card fade-in">
         <h3>Neighbor</h3>
@@ -894,7 +1007,7 @@
         </div>
         <a href="https://buy.stripe.com/28E7sNfe29g7bfO3ji3VC06" target="_blank" rel="noopener" class="btn btn-dark-outline">Become a Neighbor</a>
       </div>
- 
+
       <div class="support-card highlight fade-in">
         <span class="highlight-tag">Most Popular</span>
         <h3>Builder</h3>
@@ -915,7 +1028,7 @@
         </div>
         <a href="https://buy.stripe.com/fZu3cx6HwgIz83C8DC3VC07" target="_blank" rel="noopener" class="btn btn-primary">Become a Builder</a>
       </div>
- 
+
       <div class="support-card fade-in">
         <h3>Founding Supporter</h3>
         <div class="price">$24.99/mo</div>
@@ -936,7 +1049,7 @@
         <a href="https://buy.stripe.com/4gM5kF5DsgIz6Zy9HG3VC08" target="_blank" rel="noopener" class="btn btn-dark-outline">Become a Founding Supporter</a>
       </div>
     </div>
- 
+
     <div class="one-time-grid fade-in">
       <a href="https://buy.stripe.com/dRm00lfe2eAres03ji3VC09" target="_blank" rel="noopener" class="one-time-card">
         <div class="amt">$500</div>
@@ -949,7 +1062,7 @@
     </div>
   </div>
 </section>
- 
+
 <!-- ================= EMAIL SIGNUP ================= -->
 <section id="emailsignup">
   <div class="container">
@@ -961,7 +1074,7 @@
     </form>
   </div>
 </section>
- 
+
 <!-- ================= FOOTER ================= -->
 <footer>
   <div class="container footer-grid">
@@ -972,21 +1085,24 @@
     </div>
     <div>
       <h4>Quick Links</h4>
-      <a href="https://c.org/vXFhNccRyn" target="_blank" rel="noopener">Sign the Petition</a>
+      <a href="partners.html">Partners</a>
+      <a href="founding-sponsors.html">Become a Sponsor</a>
+      <a href="petition.html">Sign the Petition</a>
+      <a href="bridgework-campaign.html">BridgeWork Campaign</a>
+      <a href="future-projects.html">What's Next</a>
       <a href="#support">Support the Mission</a>
       <a href="https://preview.mailerlite.io/forms/2481738/191734057561752772/share" target="_blank" rel="noopener">Follow the Journey</a>
     </div>
     <div>
       <h4>Follow Along</h4>
       <div class="social-icons">
-        <a href="https://www.facebook.com/share/197XEDegkw/?mibextid=wwXIfr" target="_blank" rel="noopener" title="Facebook" aria-label="Facebook">
+        <a id="mwu-facebook-link" href="https://www.facebook.com/profile.php?id=61591646315394" target="_blank" rel="noopener" title="Facebook" aria-label="Facebook">
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M13.5 21v-8h2.7l.4-3.2h-3.1V7.7c0-.9.25-1.5 1.55-1.5H16.7V3.3C16.4 3.25 15.4 3.15 14.2 3.15c-2.4 0-4 1.45-4 4.1V9.8H7.5V13h2.7v8h3.3Z" fill="#fff"/></svg>
         </a>
-        <a href="#" target="_blank" rel="noopener" title="Instagram — PLACEHOLDER" aria-label="Instagram">
+        <a id="mwu-instagram-link" href="https://www.instagram.com/many_ways_up_llc?igsh=MTZsZDY0cXh5NGFoeA%3D%3D&utm_source=qr" target="_blank" rel="noopener" title="Instagram" aria-label="Instagram">
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><rect x="3" y="3" width="18" height="18" rx="5" stroke="#fff" stroke-width="1.6"/><circle cx="12" cy="12" r="4" stroke="#fff" stroke-width="1.6"/><circle cx="17.2" cy="6.8" r="1.1" fill="#fff"/></svg>
         </a>
       </div>
-      <span class="ph-badge" style="margin-left:0; margin-top:10px;">Instagram link: PLACEHOLDER</span>
     </div>
   </div>
   <div class="footer-bottom">
@@ -995,7 +1111,7 @@
     <span>&copy; 2026 Many Ways Up LLC</span>
   </div>
 </footer>
- 
+
 <script>
   // Fade-in on scroll
   const faders = document.querySelectorAll('.fade-in');
@@ -1008,19 +1124,37 @@
     });
   }, { threshold: 0.15, rootMargin: '0px 0px -60px 0px' });
   faders.forEach(el => appearOnScroll.observe(el));
- 
+
+  // Mobile nav toggle
+  const navToggle = document.getElementById('nav-toggle');
+  const mainNav = document.getElementById('main-nav');
+  if (navToggle && mainNav) {
+    navToggle.addEventListener('click', () => {
+      const isOpen = mainNav.classList.toggle('open');
+      navToggle.classList.toggle('open', isOpen);
+      navToggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+    });
+    mainNav.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => {
+        mainNav.classList.remove('open');
+        navToggle.classList.remove('open');
+        navToggle.setAttribute('aria-expanded', 'false');
+      });
+    });
+  }
+
   // Subtle particle background for hero
   const canvas = document.getElementById('particles');
   const ctx = canvas.getContext('2d');
   let w, h, particles = [];
- 
+
   function resize() {
     w = canvas.width = canvas.offsetWidth;
     h = canvas.height = canvas.offsetHeight;
   }
   window.addEventListener('resize', resize);
   resize();
- 
+
   const COUNT = Math.min(60, Math.floor((window.innerWidth * window.innerHeight) / 22000));
   for (let i = 0; i < COUNT; i++) {
     particles.push({
@@ -1032,7 +1166,7 @@
       o: Math.random() * 0.25 + 0.05
     });
   }
- 
+
   function animate() {
     ctx.clearRect(0, 0, w, h);
     particles.forEach(p => {
@@ -1048,6 +1182,106 @@
     requestAnimationFrame(animate);
   }
   animate();
+</script>
+<script>
+(function() {
+  var SUPA_URL = "https://skdqogcectobrvokjxkb.supabase.co";
+  var SUPA_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InNrZHFvZ2NlY3RvYnJ2b2tqeGtiIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODAxNzY4NTEsImV4cCI6MjA5NTc1Mjg1MX0.kixz5uR-X2XmlJTqw8QZ58k9IDBlT1Gjo0TcQZ9DWJ0";
+  fetch(SUPA_URL + "/rest/v1/mwu_site_content?select=key,value", {
+    headers: { "apikey": SUPA_KEY, "Authorization": "Bearer " + SUPA_KEY }
+  })
+  .then(function(r){
+    if (!r.ok) { console.error("Many Ways Up: Supabase responded with status " + r.status); }
+    return r.json();
+  })
+  .then(function(rows){
+    var map = {};
+    rows.forEach(function(row){ map[row.key] = row.value; });
+    if (map.founder_name) {
+      var nameEl = document.getElementById("mwu-founder-name");
+      if (nameEl) nameEl.textContent = "Hi, I'm " + map.founder_name + ".";
+    }
+    if (map.founder_intro_p1) {
+      var p1 = document.getElementById("mwu-founder-p1");
+      if (p1) p1.textContent = map.founder_intro_p1;
+    }
+    if (map.founder_intro_p2) {
+      var p2 = document.getElementById("mwu-founder-p2");
+      if (p2) p2.textContent = map.founder_intro_p2;
+    }
+    if (map.instagram_url) {
+      var ig = document.getElementById("mwu-instagram-link");
+      if (ig) ig.setAttribute("href", map.instagram_url);
+    }
+    if (map.facebook_url) {
+      var fb = document.getElementById("mwu-facebook-link");
+      if (fb) fb.setAttribute("href", map.facebook_url);
+    }
+  })
+  .catch(function(e){ console.warn("Many Ways Up: dynamic content fetch failed, showing static fallback text.", e); });
+})();
+</script>
+<script>
+(function() {
+  // Pulls the latest row from the "Public Update" tab of the Daily Activity Log
+  // Google Sheet (published to web as CSV). No backend needed - the sheet itself
+  // is the source of truth. Update the sheet, the site updates on next page load.
+  var PUBLIC_UPDATE_CSV_URL = "https://docs.google.com/spreadsheets/d/e/2PACX-1vTUrIqg9atcEl7yt2EISOOll5gFDXdYyKzfrblcJST5s_kdzmy-OEb7TScvfBBMvZQwWrWFNg8_oWB_/pub?gid=720665398&single=true&output=csv";
+
+  function parseCSV(text) {
+    var rows = [];
+    var row = [];
+    var field = "";
+    var inQuotes = false;
+    for (var i = 0; i < text.length; i++) {
+      var c = text[i];
+      if (inQuotes) {
+        if (c === '"') {
+          if (text[i + 1] === '"') { field += '"'; i++; }
+          else { inQuotes = false; }
+        } else {
+          field += c;
+        }
+      } else {
+        if (c === '"') { inQuotes = true; }
+        else if (c === ',') { row.push(field); field = ""; }
+        else if (c === '\n' || c === '\r') {
+          if (c === '\r' && text[i + 1] === '\n') i++;
+          row.push(field); field = "";
+          if (row.length > 1 || row[0] !== "") rows.push(row);
+          row = [];
+        } else {
+          field += c;
+        }
+      }
+    }
+    if (field !== "" || row.length) { row.push(field); rows.push(row); }
+    return rows;
+  }
+
+  fetch(PUBLIC_UPDATE_CSV_URL)
+    .then(function(r) {
+      if (!r.ok) { throw new Error("status " + r.status); }
+      return r.text();
+    })
+    .then(function(csvText) {
+      var rows = parseCSV(csvText);
+      // rows[0] is the header row (Date, Public Update). Grab the last non-empty data row.
+      for (var i = rows.length - 1; i >= 1; i--) {
+        var text = (rows[i][1] || "").trim();
+        if (text) {
+          var p = document.getElementById("mwu-daily-update");
+          var box = document.getElementById("mwu-daily-update-box");
+          if (p && box) {
+            p.textContent = text;
+            box.style.display = "block";
+          }
+          break;
+        }
+      }
+    })
+    .catch(function(e){ console.warn("Many Ways Up: daily update fetch failed, hiding update box.", e); });
+})();
 </script>
 </body>
 </html>
