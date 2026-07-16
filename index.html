@@ -978,7 +978,7 @@
     </div>
 
     <div class="founder-intro fade-in">
-      <div class="founder-avatar"><img src="jermaine.jpg" alt="Jermaine Patterson, founder of Many Ways Up"></div>
+      <div class="founder-avatar"><img id="mwu-founder-image" src="jermaine.jpg" alt="Jermaine Patterson, founder of Many Ways Up"></div>
       <div>
         <p><strong id="mwu-founder-name">Hi, I'm Jermaine.</strong></p>
         <p id="mwu-founder-p1">I'm building Many Ways Up to help people find real resources fast and so people can earn money the same day instead of waiting on an application. I saw a way to help where nobody else was stepping in, so I made it my job.</p>
@@ -1208,6 +1208,10 @@
     if (map.founder_intro_p2) {
       var p2 = document.getElementById("mwu-founder-p2");
       if (p2) p2.textContent = map.founder_intro_p2;
+    }
+    if (map.founder_image_url) {
+      var founderImg = document.getElementById("mwu-founder-image");
+      if (founderImg) founderImg.setAttribute("src", map.founder_image_url);
     }
     if (map.instagram_url) {
       var ig = document.getElementById("mwu-instagram-link");
