@@ -88,6 +88,19 @@
     font-weight: 600;
   }
   .card a.repo:hover { text-decoration: underline; }
+
+  .card-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 32px;
+    margin-bottom: 32px;
+  }
+  @media (max-width: 700px) {
+    .card-grid { grid-template-columns: 1fr; }
+  }
+  .card-grid .card { margin-bottom: 0; }
+  .card-wide { width: 100%; }
+
   footer {
     text-align: center;
     padding: 40px 24px;
@@ -106,22 +119,24 @@
 
 <main>
 
-  <div class="card">
-    <span class="stage">Idea Stage</span>
-    <h2>Neighbors Grow</h2>
-    <p>A future platform connecting community gardeners with people experiencing food insecurity. Neighbors with extra to share get matched with neighbors who need it &mdash; turning backyard gardens into a real food-access network.</p>
+  <div class="card-grid">
+    <div class="card">
+      <span class="stage">Idea Stage</span>
+      <h2>Neighbors Grow</h2>
+      <p>A future platform connecting community gardeners with people experiencing food insecurity. Neighbors with extra to share get matched with neighbors who need it &mdash; turning backyard gardens into a real food-access network.</p>
+    </div>
+
+    <div class="card">
+      <span class="stage">In Development</span>
+      <h2>RethreadStudios</h2>
+      <p>Where Thrift Meets Art. A marketplace for artists who transform secondhand clothing into one-of-one pieces. Every garment has a story, every artist has a vision &mdash; and every piece ships with a QR tag linking back to it.</p>
+      <a class="repo" href="https://github.com/Seanacy/RethreadStudios" target="_blank" rel="noopener">View the build on GitHub &rarr;</a>
+    </div>
   </div>
 
-  <div class="card">
-    <span class="stage">In Development</span>
-    <h2>RethreadStudios</h2>
-    <p>Where Thrift Meets Art. A marketplace for artists who transform secondhand clothing into one-of-one pieces. Every garment has a story, every artist has a vision &mdash; and every piece ships with a QR tag linking back to it.</p>
-    <a class="repo" href="https://github.com/Seanacy/RethreadStudios" target="_blank" rel="noopener">View the build on GitHub &rarr;</a>
-  </div>
-
-  <div class="card">
+  <div class="card card-wide">
     <span class="stage">Idea Stage</span>
-    <h2>Halo</h2>
+    <h2>Halo Housing Project</h2>
     <p>A verified rent assistance platform. People facing eviction submit their case, it gets verified, then gets funded through pooled community donations, direct sponsorship from individual donors, and escrow-secured matching campaigns. Every dollar is tracked from donation to payout, with a public outcome report once a case is funded.</p>
   </div>
 
