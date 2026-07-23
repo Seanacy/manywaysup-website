@@ -1,0 +1,627 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Become a Founding Sponsor — Many Ways Up LLC</title>
+<meta name="description" content="Sponsor the entire Many Ways Up ecosystem — TentCity, BridgeWork, OSAAT, and WeStackr — while it's still early. Lock in founding pricing before we expand across every platform.">
+<link rel="icon" type="image/x-icon" href="favicon.ico">
+<link rel="apple-touch-icon" href="favicon-180.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700;800&family=Inter:wght@300;400;500;600;700;800&family=Caveat:wght@500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --navy:#0F1F3D;
+    --white:#FFFFFF;
+    --green:#4CAF7D;
+    --gold:#D4A853;
+    --offwhite:#F9F5EF;
+    --grey:#F4F4F4;
+    --red:#D9534F;
+    --text-dark:#16233F;
+    --text-grey:#c9d2e3;
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  html{scroll-behavior:smooth;}
+  body{
+    font-family:'Inter', sans-serif;
+    background:var(--white);
+    color:var(--text-dark);
+    line-height:1.6;
+    overflow-x:hidden;
+  }
+  img,svg{max-width:100%; display:block;}
+  a{text-decoration:none; color:inherit;}
+  ul{list-style:none;}
+  .container{
+    max-width:1100px;
+    margin:0 auto;
+    padding:0 24px;
+  }
+  section{
+    padding:80px 0;
+    position:relative;
+  }
+  .eyebrow{
+    font-size:13px;
+    letter-spacing:2px;
+    font-weight:700;
+    text-transform:uppercase;
+    color:var(--green);
+    margin-bottom:14px;
+    display:block;
+  }
+  h1,h2,h3{font-family:'Playfair Display', serif; font-weight:700;}
+  .section-head{text-align:center; max-width:720px; margin:0 auto 48px;}
+  .section-head h2{font-size:clamp(28px,4vw,42px); color:var(--text-dark); line-height:1.25;}
+  .section-head p{margin-top:14px; font-size:16px; color:#555; font-weight:400;}
+  .dark .section-head h2{color:var(--white);}
+  .dark .section-head p{color:var(--text-grey);}
+
+  /* Buttons */
+  .btn{
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    gap:8px;
+    padding:14px 28px;
+    border-radius:8px;
+    font-weight:600;
+    font-size:15px;
+    cursor:pointer;
+    border:2px solid transparent;
+    transition:transform .2s ease, opacity .2s ease;
+    white-space:nowrap;
+  }
+  .btn:hover{transform:translateY(-2px);}
+  .btn-primary{background:var(--green); color:var(--white);}
+  .btn-outline{background:transparent; color:var(--white); border-color:rgba(255,255,255,0.5);}
+  .btn-outline:hover{border-color:var(--white);}
+  .btn-dark-outline{background:transparent; color:var(--navy); border-color:var(--navy);}
+  .btn-gold{background:var(--gold); color:var(--navy);}
+  .btn-block{width:100%;}
+
+  .fade-in{opacity:0; transform:translateY(24px); transition:opacity .8s ease, transform .8s ease;}
+  .fade-in.visible{opacity:1; transform:translateY(0);}
+
+  /* ---------- HEADER ---------- */
+  .site-header{
+    position:sticky;
+    top:0;
+    z-index:20;
+    background:var(--white);
+    box-shadow:0 1px 0 rgba(0,0,0,0.06);
+  }
+  .header-inner{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    padding:12px 24px;
+  }
+  .logo-group{
+    display:flex;
+    align-items:center;
+    gap:10px;
+  }
+  .logo-group img{
+    height:38px;
+    width:auto;
+  }
+  .logo-group span{
+    font-family:'Inter', sans-serif;
+    font-weight:800;
+    font-size:16px;
+    letter-spacing:0.5px;
+    color:var(--navy);
+    text-transform:uppercase;
+  }
+  .header-inner .btn{
+    padding:8px 14px;
+    font-size:12.5px;
+    white-space:nowrap;
+  }
+
+  /* ---------- NAV ---------- */
+  .main-nav{display:flex; align-items:center; gap:14px;}
+  .nav-link{font-size:13.5px; font-weight:700; color:var(--navy); white-space:nowrap;}
+  .nav-link:hover{color:var(--green);}
+  .nav-link.nav-highlight{
+    background:var(--gold);
+    color:var(--navy);
+    padding:8px 14px;
+    border-radius:8px;
+    white-space:nowrap;
+  }
+  .nav-link.nav-highlight-red{
+    background:var(--red);
+    color:var(--white);
+  }
+  .nav-toggle{
+    display:none;
+    flex-direction:column;
+    justify-content:center;
+    gap:5px;
+    width:34px; height:34px;
+    background:none; border:none; cursor:pointer;
+    padding:0;
+  }
+  .nav-toggle span{
+    display:block; width:100%; height:2px; background:var(--navy);
+    transition:transform .2s ease, opacity .2s ease;
+  }
+  .nav-toggle.open span:nth-child(1){transform:translateY(7px) rotate(45deg);}
+  .nav-toggle.open span:nth-child(2){opacity:0;}
+  .nav-toggle.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg);}
+
+  @media (max-width:640px){
+    .nav-toggle{display:flex;}
+    .main-nav{
+      position:absolute;
+      top:100%; left:0; right:0;
+      background:var(--white);
+      flex-direction:column;
+      align-items:stretch;
+      gap:0;
+      max-height:0;
+      overflow:hidden;
+      box-shadow:0 8px 20px rgba(0,0,0,0.08);
+      transition:max-height .25s ease;
+    }
+    .main-nav.open{max-height:380px;}
+    .main-nav a{
+      padding:16px 24px !important;
+      border-radius:0 !important;
+      width:100%;
+      text-align:center;
+      border-bottom:1px solid #eee;
+    }
+  }
+
+  /* ---------- SPONSOR HERO ---------- */
+  #sponsor-hero{
+    background:var(--navy);
+    color:var(--white);
+    text-align:center;
+    padding:100px 24px 80px;
+  }
+  #sponsor-hero .eyebrow{color:var(--gold); text-align:center;}
+  #sponsor-hero h1{
+    font-size:clamp(28px,4.6vw,48px);
+    line-height:1.25;
+    max-width:800px;
+    margin:0 auto 22px;
+    color:var(--white);
+  }
+  #sponsor-hero p{
+    color:var(--text-grey);
+    font-size:clamp(15px,2vw,18px);
+    font-weight:300;
+    max-width:680px;
+    margin:0 auto 12px;
+  }
+  #sponsor-hero .hero-buttons{
+    display:flex; flex-wrap:wrap; gap:16px; justify-content:center; margin-top:28px;
+  }
+
+  /* ---------- ECOSYSTEM ---------- */
+  #ecosystem{background:var(--offwhite);}
+  .ecosystem-grid{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:20px;
+    max-width:900px;
+    margin:0 auto 40px;
+  }
+  .ecosystem-card{
+    background:var(--white);
+    border:1px solid #e6e6e6;
+    border-radius:14px;
+    padding:22px 16px;
+    text-align:center;
+  }
+  .ecosystem-card .stage{font-size:11px; font-weight:800; letter-spacing:1px; text-transform:uppercase; color:var(--green); margin-bottom:8px;}
+  .ecosystem-card h3{font-family:'Inter',sans-serif; font-size:16px; font-weight:800; color:var(--text-dark); margin-bottom:6px;}
+  .ecosystem-card p{font-size:13px; color:#555;}
+  .honesty-note{
+    max-width:760px;
+    margin:0 auto;
+    background:var(--grey);
+    border-radius:14px;
+    padding:24px 28px;
+    text-align:center;
+    font-size:14.5px;
+    color:#444;
+  }
+  .honesty-note strong{color:var(--text-dark);}
+
+  /* ---------- TIERS ---------- */
+  #tiers{background:var(--white);}
+  .tier-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:24px;
+    align-items:stretch;
+  }
+  .tier-card{
+    border:1px solid #e6e6e6;
+    border-radius:18px;
+    padding:32px 26px;
+    display:flex;
+    flex-direction:column;
+    position:relative;
+    box-shadow:0 4px 20px rgba(0,0,0,0.04);
+  }
+  .tier-card.popular{border:2px solid var(--gold); box-shadow:0 8px 28px rgba(212,168,83,0.18);}
+  .popular-badge{
+    position:absolute;
+    top:-14px; left:50%; transform:translateX(-50%);
+    background:var(--gold);
+    color:var(--navy);
+    font-size:11px;
+    font-weight:800;
+    letter-spacing:1px;
+    text-transform:uppercase;
+    padding:6px 14px;
+    border-radius:20px;
+    white-space:nowrap;
+  }
+  .tier-card h3{font-family:'Inter',sans-serif; font-size:20px; font-weight:800; color:var(--text-dark); margin-bottom:4px;}
+  .tier-price{font-size:30px; font-weight:800; color:var(--navy); margin-bottom:4px;}
+  .tier-price span{font-size:14px; font-weight:500; color:#777;}
+  .tier-sub{font-size:13px; color:#888; margin-bottom:20px;}
+  .tier-section-label{
+    font-size:11px;
+    font-weight:800;
+    letter-spacing:1px;
+    text-transform:uppercase;
+    margin:16px 0 10px;
+  }
+  .tier-section-label.live{color:var(--green);}
+  .tier-section-label.season{color:var(--gold);}
+  .tier-list li{
+    font-size:13.5px;
+    color:#3a3a3a;
+    padding-left:22px;
+    position:relative;
+    margin-bottom:10px;
+  }
+  .tier-list li::before{
+    content:"✓";
+    color:var(--green);
+    font-weight:700;
+    position:absolute;
+    left:0; top:0;
+  }
+  .tier-list.season li::before{content:"→"; color:var(--gold);}
+  .tier-card .btn{margin-top:auto; margin-top:24px;}
+
+  @media (max-width:900px){
+    .ecosystem-grid{grid-template-columns:repeat(2,1fr);}
+    .tier-grid{grid-template-columns:1fr;}
+  }
+
+  /* ---------- HOW IT WORKS ---------- */
+  #how-it-works{background:var(--offwhite);}
+  .steps-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:28px;
+  }
+  .step-card{text-align:center; padding:0 12px;}
+  .step-num{
+    width:44px; height:44px;
+    border-radius:50%;
+    background:var(--navy);
+    color:var(--white);
+    font-weight:800;
+    font-family:'Inter',sans-serif;
+    display:flex; align-items:center; justify-content:center;
+    margin:0 auto 16px;
+  }
+  .step-card h3{font-family:'Inter',sans-serif; font-size:16px; font-weight:800; margin-bottom:8px;}
+  .step-card p{font-size:14px; color:#555;}
+  @media (max-width:820px){.steps-grid{grid-template-columns:1fr;}}
+
+  /* ---------- CTA ---------- */
+  #sponsor-cta{background:var(--navy); color:var(--white); text-align:center;}
+  .cta-panel{
+    max-width:640px;
+    margin:0 auto;
+    background:rgba(255,255,255,0.05);
+    border:2px solid var(--gold);
+    border-radius:20px;
+    padding:48px 32px;
+  }
+  .cta-panel h2{font-size:clamp(24px,3.6vw,32px); margin-bottom:14px; color:var(--white);}
+  .cta-panel p{color:var(--text-grey); font-size:15px; margin-bottom:26px;}
+  .cta-panel .btn{padding:16px 36px; font-size:16px;}
+  .cta-note{margin-top:16px; font-size:12.5px; color:var(--text-grey);}
+  .cta-note a{color:var(--gold); font-weight:600;}
+
+  /* ---------- FOOTER ---------- */
+  footer{background:var(--navy); color:var(--white); padding-top:60px;}
+  .footer-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:32px;
+    padding-bottom:40px;
+    border-bottom:1px solid rgba(255,255,255,0.1);
+  }
+  .footer-grid h4{font-size:17px; margin-bottom:14px; font-family:'Inter',sans-serif;}
+  .footer-grid p, .footer-grid a{display:block; font-size:14px; color:var(--text-grey); margin-bottom:8px;}
+  .footer-grid a:hover{color:var(--green);}
+  .social-icons{display:flex; gap:14px; margin-top:8px;}
+  .social-icons a{
+    width:38px; height:38px;
+    border-radius:50%;
+    border:1px solid rgba(255,255,255,0.2);
+    display:flex; align-items:center; justify-content:center;
+  }
+  .footer-bottom{
+    padding:24px;
+    text-align:center;
+    font-size:13px;
+    color:var(--text-grey);
+    display:flex;
+    flex-wrap:wrap;
+    justify-content:center;
+    gap:8px;
+  }
+
+  @media (max-width:820px){
+    .footer-grid{grid-template-columns:1fr;}
+    section{padding:56px 0;}
+  }
+  @media (max-width:600px){
+    .cta-panel{padding:28px 22px;}
+  }
+</style>
+</head>
+<body>
+
+<!-- ================= HEADER ================= -->
+<header class="site-header">
+  <div class="container header-inner">
+    <a href="index.html" class="logo-group">
+      <img src="mwu-icon.png" alt="Many Ways Up logo">
+      <span>Many Ways Up</span>
+    </a>
+    <nav class="main-nav" id="main-nav">
+      <a href="index.html" class="nav-link">Home</a>
+      <a href="partners.html" class="nav-link">Partners</a>
+      <a href="founding-sponsors.html" class="nav-link">Sponsors</a>
+      <a href="future-projects.html" class="nav-link">What's Next</a>
+      <a href="https://c.org/vXFhNccRyn" target="_blank" rel="noopener" class="nav-link nav-highlight nav-highlight-red">Sign the Petition</a>
+      <a href="bridgework-campaign.html" class="nav-link nav-highlight">BridgeWork Campaign</a>
+      <a href="index.html#support" class="btn btn-dark-outline">Subscribe</a>
+    </nav>
+    <button class="nav-toggle" id="nav-toggle" aria-label="Open menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<!-- ================= SPONSOR HERO ================= -->
+<section id="sponsor-hero">
+  <span class="eyebrow">Founding Season</span>
+  <h1>Become a Many Ways Up Founding Sponsor</h1>
+  <p>Sponsor the entire Many Ways Up ecosystem — TentCity, BridgeWork, OSAAT, and WeStackr — while it's still early. Lock in founding pricing now, before the platforms most sponsors will want are even finished being built.</p>
+  <div class="hero-buttons">
+    <a href="#tiers" class="btn btn-gold">See Sponsor Tiers</a>
+    <a href="mailto:MWULLC@gmail.com?subject=Founding%20Sponsor%20Inquiry" class="btn btn-outline">Email Us</a>
+  </div>
+</section>
+
+<!-- ================= ECOSYSTEM ================= -->
+<section id="ecosystem">
+  <div class="container">
+    <div class="section-head fade-in">
+      <span class="eyebrow">One Sponsorship. Four Platforms.</span>
+      <h2>What You're Actually Sponsoring</h2>
+      <p>Many Ways Up is building four connected platforms that move people from crisis to independence. A Founding Sponsorship isn't tied to just one of them — it's tied to the whole company.</p>
+    </div>
+    <div class="ecosystem-grid">
+      <div class="ecosystem-card fade-in">
+        <span class="stage">Crisis</span>
+        <h3>TentCity</h3>
+        <p>Free directory connecting people in crisis to shelters, food, and emergency services.</p>
+      </div>
+      <div class="ecosystem-card fade-in">
+        <span class="stage">Stabilization</span>
+        <h3>BridgeWork</h3>
+        <p>Same-day task marketplace helping people in hardship earn cash today.</p>
+      </div>
+      <div class="ecosystem-card fade-in">
+        <span class="stage">Reintegration</span>
+        <h3>OSAAT</h3>
+        <p>Rewards real cash for verified steps toward rebuilding a life.</p>
+      </div>
+      <div class="ecosystem-card fade-in">
+        <span class="stage">Infrastructure</span>
+        <h3>WeStackr</h3>
+        <p>Collective crowdfunding engine that funds OSAAT rewards and BridgeWork tasks.</p>
+      </div>
+    </div>
+    <div class="honesty-note fade-in">
+      <strong>Built in public, so this stays honest:</strong> TentCity, WeStackr, and OSAAT all have sponsor placements live today. BridgeWork is adding its own placement this season. Every tier below tells you exactly what's live right now and what's rolling out next — nothing is promised that isn't either already working or actively being built.
+    </div>
+  </div>
+</section>
+
+<!-- ================= TIERS ================= -->
+<section id="tiers">
+  <div class="container">
+    <div class="section-head fade-in">
+      <span class="eyebrow">Sponsor Tiers</span>
+      <h2>Choose Your Founding Sponsor Tier</h2>
+      <p>All tiers run 90 days. Pricing is locked in for the full Founding Season, even as new platforms add sponsor placements.</p>
+    </div>
+    <div class="tier-grid">
+
+      <div class="tier-card fade-in">
+        <h3>Community Sponsor</h3>
+        <div class="tier-price">$150 <span>/ 90 days</span></div>
+        <div class="tier-sub">A first foothold across the ecosystem.</div>
+        <div class="tier-section-label live">Live Today</div>
+        <ul class="tier-list">
+          <li>Logo and link on TentCity's sponsor page</li>
+          <li>Logo and link on WeStackr and OSAAT</li>
+        </ul>
+        <div class="tier-section-label season">This Season</div>
+        <ul class="tier-list season">
+          <li>Same logo spot added on BridgeWork once its site opens sponsor placements</li>
+        </ul>
+        <a href="mailto:MWULLC@gmail.com?subject=Community%20Sponsor%20Inquiry" class="btn btn-dark-outline">Become a Community Sponsor</a>
+      </div>
+
+      <div class="tier-card popular fade-in">
+        <span class="popular-badge">Most Popular</span>
+        <h3>Featured Sponsor</h3>
+        <div class="tier-price">$300 <span>/ 90 days</span></div>
+        <div class="tier-sub">Higher visibility, ecosystem-wide.</div>
+        <div class="tier-section-label live">Live Today</div>
+        <ul class="tier-list">
+          <li>Everything in Community Sponsor</li>
+          <li>TentCity homepage logo rotation</li>
+          <li>Featured badge on your TentCity listing</li>
+          <li>Priority logo placement on WeStackr and OSAAT</li>
+        </ul>
+        <div class="tier-section-label season">This Season</div>
+        <ul class="tier-list season">
+          <li>Featured placement added on BridgeWork once its site opens sponsor placements</li>
+          <li>Quarterly impact snapshot showing your reach across all four platforms</li>
+        </ul>
+        <a href="mailto:MWULLC@gmail.com?subject=Featured%20Sponsor%20Inquiry" class="btn btn-gold">Become a Featured Sponsor</a>
+      </div>
+
+      <div class="tier-card fade-in">
+        <h3>Anchor Sponsor</h3>
+        <div class="tier-price">$500 <span>/ 90 days</span></div>
+        <div class="tier-sub">The deepest level of company-wide sponsorship.</div>
+        <div class="tier-section-label live">Live Today</div>
+        <ul class="tier-list">
+          <li>Everything in Featured Sponsor</li>
+          <li>Priority placement in TentCity's map and search results</li>
+          <li>Top-billed logo placement on WeStackr and OSAAT</li>
+        </ul>
+        <div class="tier-section-label season">This Season</div>
+        <ul class="tier-list season">
+          <li>First input on how sponsor placements are designed on BridgeWork</li>
+          <li>Co-branded outreach across the whole company, not one product</li>
+          <li>Founding recognition in the story of how Many Ways Up was built</li>
+        </ul>
+        <a href="mailto:MWULLC@gmail.com?subject=Anchor%20Sponsor%20Inquiry" class="btn btn-dark-outline">Become an Anchor Sponsor</a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ================= HOW IT WORKS ================= -->
+<section id="how-it-works">
+  <div class="container">
+    <div class="section-head fade-in">
+      <span class="eyebrow">How It Works</span>
+      <h2>Three Simple Steps</h2>
+    </div>
+    <div class="steps-grid">
+      <div class="step-card fade-in">
+        <div class="step-num">01</div>
+        <h3>Choose a Tier</h3>
+        <p>Pick the sponsor level that fits what you want out of the season.</p>
+      </div>
+      <div class="step-card fade-in">
+        <div class="step-num">02</div>
+        <h3>Get Set Up on TentCity, WeStackr &amp; OSAAT</h3>
+        <p>Your logo and link go live right away on the three platforms that are ready today.</p>
+      </div>
+      <div class="step-card fade-in">
+        <div class="step-num">03</div>
+        <h3>Grow With Us</h3>
+        <p>As BridgeWork adds its sponsor spot this season, your placement expands there automatically — no extra cost, no extra work.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= CTA ================= -->
+<section id="sponsor-cta">
+  <div class="container">
+    <div class="cta-panel fade-in">
+      <h2>Join the Founding Season</h2>
+      <p>Sponsor Many Ways Up while it's still being built, and grow with the whole ecosystem instead of just one app.</p>
+      <a href="mailto:MWULLC@gmail.com?subject=Founding%20Sponsor%20Inquiry" class="btn btn-gold">Become a Sponsor</a>
+      <p class="cta-note">Questions first? Email us at <a href="mailto:MWULLC@gmail.com">MWULLC@gmail.com</a>.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ================= FOOTER ================= -->
+<footer>
+  <div class="container footer-grid">
+    <div>
+      <h4>Many Ways Up LLC</h4>
+      <p>Minneapolis, Minnesota</p>
+      <p>MWULLC@gmail.com</p>
+    </div>
+    <div>
+      <h4>Quick Links</h4>
+      <a href="index.html">Home</a>
+      <a href="partners.html">Partners</a>
+      <a href="founding-sponsors.html">Become a Sponsor</a>
+      <a href="https://c.org/vXFhNccRyn" target="_blank" rel="noopener">Sign the Petition</a>
+      <a href="bridgework-campaign.html">BridgeWork Campaign</a>
+      <a href="future-projects.html">What's Next</a>
+    </div>
+    <div>
+      <h4>Follow Along</h4>
+      <div class="social-icons">
+        <a href="https://www.facebook.com/profile.php?id=61591646315394" target="_blank" rel="noopener" title="Facebook" aria-label="Facebook">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M13.5 21v-8h2.7l.4-3.2h-3.1V7.7c0-.9.25-1.5 1.55-1.5H16.7V3.3C16.4 3.25 15.4 3.15 14.2 3.15c-2.4 0-4 1.45-4 4.1V9.8H7.5V13h2.7v8h3.3Z" fill="#fff"/></svg>
+        </a>
+        <a href="https://www.instagram.com/many_ways_up_llc?igsh=MTZsZDY0cXh5NGFoeA%3D%3D&utm_source=qr" target="_blank" rel="noopener" title="Instagram" aria-label="Instagram">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><rect x="3" y="3" width="18" height="18" rx="5" stroke="#fff" stroke-width="1.6"/><circle cx="12" cy="12" r="4" stroke="#fff" stroke-width="1.6"/><circle cx="17.2" cy="6.8" r="1.1" fill="#fff"/></svg>
+        </a>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>Building technology for the people who need it most.</span>
+    <span>|</span>
+    <span>&copy; 2026 Many Ways Up LLC</span>
+  </div>
+</footer>
+
+<script>
+  const faders = document.querySelectorAll('.fade-in');
+  const appearOnScroll = new IntersectionObserver((entries, observer) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.15, rootMargin: '0px 0px -60px 0px' });
+  faders.forEach(el => appearOnScroll.observe(el));
+
+  // Mobile nav toggle
+  const navToggle = document.getElementById('nav-toggle');
+  const mainNav = document.getElementById('main-nav');
+  if (navToggle && mainNav) {
+    navToggle.addEventListener('click', () => {
+      const isOpen = mainNav.classList.toggle('open');
+      navToggle.classList.toggle('open', isOpen);
+      navToggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+    });
+    mainNav.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => {
+        mainNav.classList.remove('open');
+        navToggle.classList.remove('open');
+        navToggle.setAttribute('aria-expanded', 'false');
+      });
+    });
+  }
+</script>
+</body>
+</html>
