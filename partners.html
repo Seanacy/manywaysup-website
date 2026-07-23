@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Become a BridgeWork Community Partner — Many Ways Up LLC</title>
+<meta name="description" content="BridgeWork partners with nonprofits and community organizations to help fund and coordinate small community improvement projects. Review the partnership agreement.">
+<link rel="icon" type="image/x-icon" href="favicon.ico">
+<link rel="apple-touch-icon" href="favicon-180.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700;800&family=Inter:wght@300;400;500;600;700;800&family=Caveat:wght@500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --navy:#0F1F3D;
+    --white:#FFFFFF;
+    --green:#4CAF7D;
+    --gold:#D4A853;
+    --offwhite:#F9F5EF;
+    --grey:#F4F4F4;
+    --red:#D9534F;
+    --text-dark:#16233F;
+    --text-grey:#c9d2e3;
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  html{scroll-behavior:smooth;}
+  body{
+    font-family:'Inter', sans-serif;
+    background:var(--white);
+    color:var(--text-dark);
+    line-height:1.6;
+    overflow-x:hidden;
+  }
+  img,svg{max-width:100%; display:block;}
+  a{text-decoration:none; color:inherit;}
+  ul{list-style:none;}
+  .container{
+    max-width:1100px;
+    margin:0 auto;
+    padding:0 24px;
+  }
+  section{
+    padding:80px 0;
+    position:relative;
+  }
+  .eyebrow{
+    font-size:13px;
+    letter-spacing:2px;
+    font-weight:700;
+    text-transform:uppercase;
+    color:var(--green);
+    margin-bottom:14px;
+    display:block;
+  }
+  h1,h2,h3{font-family:'Playfair Display', serif; font-weight:700;}
+  .section-head{text-align:center; max-width:720px; margin:0 auto 48px;}
+  .section-head h2{font-size:clamp(28px,4vw,42px); color:var(--text-dark); line-height:1.25;}
+  .section-head p{margin-top:14px; font-size:16px; color:#555; font-weight:400;}
+  .dark .section-head h2{color:var(--white);}
+  .dark .section-head p{color:var(--text-grey);}
+
+  /* Buttons */
+  .btn{
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    gap:8px;
+    padding:14px 28px;
+    border-radius:8px;
+    font-weight:600;
+    font-size:15px;
+    cursor:pointer;
+    border:2px solid transparent;
+    transition:transform .2s ease, opacity .2s ease;
+    white-space:nowrap;
+  }
+  .btn:hover{transform:translateY(-2px);}
+  .btn-primary{background:var(--green); color:var(--white);}
+  .btn-outline{background:transparent; color:var(--white); border-color:rgba(255,255,255,0.5);}
+  .btn-outline:hover{border-color:var(--white);}
+  .btn-dark-outline{background:transparent; color:var(--navy); border-color:var(--navy);}
+  .btn-gold{background:var(--gold); color:var(--navy);}
+  .btn-block{width:100%;}
+
+  .fade-in{opacity:0; transform:translateY(24px); transition:opacity .8s ease, transform .8s ease;}
+  .fade-in.visible{opacity:1; transform:translateY(0);}
+
+  /* ---------- HEADER ---------- */
+  .site-header{
+    position:sticky;
+    top:0;
+    z-index:20;
+    background:var(--white);
+    box-shadow:0 1px 0 rgba(0,0,0,0.06);
+  }
+  .header-inner{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    padding:12px 24px;
+  }
+  .logo-group{
+    display:flex;
+    align-items:center;
+    gap:10px;
+  }
+  .logo-group img{
+    height:38px;
+    width:auto;
+  }
+  .logo-group span{
+    font-family:'Inter', sans-serif;
+    font-weight:800;
+    font-size:16px;
+    letter-spacing:0.5px;
+    color:var(--navy);
+    text-transform:uppercase;
+  }
+  .header-inner .btn{
+    padding:9px 18px;
+    font-size:13px;
+  }
+
+  /* ---------- NAV ---------- */
+  .main-nav{display:flex; align-items:center; gap:14px;}
+  .nav-link{font-size:13.5px; font-weight:700; color:var(--navy); white-space:nowrap;}
+  .nav-link:hover{color:var(--green);}
+  .nav-link.nav-highlight{
+    background:var(--gold);
+    color:var(--navy);
+    padding:8px 14px;
+    border-radius:8px;
+    white-space:nowrap;
+  }
+  .nav-link.nav-highlight-red{
+    background:var(--red);
+    color:var(--white);
+  }
+  .nav-toggle{
+    display:none;
+    flex-direction:column;
+    justify-content:center;
+    gap:5px;
+    width:34px; height:34px;
+    background:none; border:none; cursor:pointer;
+    padding:0;
+  }
+  .nav-toggle span{
+    display:block; width:100%; height:2px; background:var(--navy);
+    transition:transform .2s ease, opacity .2s ease;
+  }
+  .nav-toggle.open span:nth-child(1){transform:translateY(7px) rotate(45deg);}
+  .nav-toggle.open span:nth-child(2){opacity:0;}
+  .nav-toggle.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg);}
+
+  @media (max-width:640px){
+    .nav-toggle{display:flex;}
+    .main-nav{
+      position:absolute;
+      top:100%; left:0; right:0;
+      background:var(--white);
+      flex-direction:column;
+      align-items:stretch;
+      gap:0;
+      max-height:0;
+      overflow:hidden;
+      box-shadow:0 8px 20px rgba(0,0,0,0.08);
+      transition:max-height .25s ease;
+    }
+    .main-nav.open{max-height:340px;}
+    .main-nav a{
+      padding:16px 24px !important;
+      border-radius:0 !important;
+      width:100%;
+      text-align:center;
+      border-bottom:1px solid #eee;
+    }
+  }
+
+  /* ---------- PARTNERS HERO ---------- */
+  #partners-hero{
+    background:var(--navy);
+    color:var(--white);
+    text-align:center;
+    padding:100px 24px 80px;
+  }
+  #partners-hero .eyebrow{color:var(--gold); text-align:center;}
+  #partners-hero h1{
+    font-size:clamp(28px,4.6vw,48px);
+    line-height:1.25;
+    max-width:760px;
+    margin:0 auto 22px;
+    color:var(--white);
+  }
+  #partners-hero p{
+    color:var(--text-grey);
+    font-size:clamp(15px,2vw,18px);
+    font-weight:300;
+    max-width:640px;
+    margin:0 auto 12px;
+  }
+  #partners-hero .hero-buttons{
+    display:flex; flex-wrap:wrap; gap:16px; justify-content:center; margin-top:28px;
+  }
+
+  /* ---------- PANELS ---------- */
+  #reassurance{background:var(--offwhite);}
+  #agreement-means{background:var(--white);}
+  .panel{
+    max-width:760px;
+    margin:0 auto;
+    background:var(--white);
+    border:1px solid #e6e6e6;
+    border-radius:16px;
+    padding:36px 40px;
+    box-shadow:0 4px 20px rgba(0,0,0,0.04);
+  }
+  #agreement-means .panel{background:var(--grey); border:none; box-shadow:none;}
+  .check-list li{
+    font-size:15px;
+    color:#3a3a3a;
+    padding-left:30px;
+    position:relative;
+    margin-bottom:14px;
+  }
+  .check-list li:last-child{margin-bottom:0;}
+  .check-list li::before{
+    content:"✓";
+    color:var(--green);
+    font-weight:700;
+    position:absolute;
+    left:0;
+    top:0;
+  }
+  .check-list li strong{color:var(--text-dark);}
+
+  /* ---------- DOWNLOAD CTA ---------- */
+  #download-cta{background:var(--navy); color:var(--white); text-align:center;}
+  .download-panel{
+    max-width:640px;
+    margin:0 auto;
+    background:rgba(255,255,255,0.05);
+    border:2px solid var(--gold);
+    border-radius:20px;
+    padding:48px 32px;
+  }
+  .download-panel h2{font-size:clamp(24px,3.6vw,32px); margin-bottom:14px; color:var(--white);}
+  .download-panel p{color:var(--text-grey); font-size:15px; margin-bottom:26px;}
+  .download-panel .btn{padding:16px 36px; font-size:16px;}
+  .download-note{margin-top:16px; font-size:12.5px; color:var(--text-grey);}
+  .download-note a{color:var(--gold); font-weight:600;}
+
+  /* ---------- FOOTER ---------- */
+  footer{background:var(--navy); color:var(--white); padding-top:60px;}
+  .footer-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:32px;
+    padding-bottom:40px;
+    border-bottom:1px solid rgba(255,255,255,0.1);
+  }
+  .footer-grid h4{font-size:17px; margin-bottom:14px; font-family:'Inter',sans-serif;}
+  .footer-grid p, .footer-grid a{display:block; font-size:14px; color:var(--text-grey); margin-bottom:8px;}
+  .footer-grid a:hover{color:var(--green);}
+  .social-icons{display:flex; gap:14px; margin-top:8px;}
+  .social-icons a{
+    width:38px; height:38px;
+    border-radius:50%;
+    border:1px solid rgba(255,255,255,0.2);
+    display:flex; align-items:center; justify-content:center;
+  }
+  .footer-bottom{
+    padding:24px;
+    text-align:center;
+    font-size:13px;
+    color:var(--text-grey);
+    display:flex;
+    flex-wrap:wrap;
+    justify-content:center;
+    gap:8px;
+  }
+
+  @media (max-width:820px){
+    .footer-grid{grid-template-columns:1fr;}
+    section{padding:56px 0;}
+  }
+  @media (max-width:600px){
+    .panel, .download-panel{padding:28px 22px;}
+  }
+</style>
+</head>
+<body>
+
+<!-- ================= HEADER ================= -->
+<header class="site-header">
+  <div class="container header-inner">
+    <a href="index.html" class="logo-group">
+      <img src="mwu-icon.png" alt="Many Ways Up logo">
+      <span>Many Ways Up</span>
+    </a>
+    <nav class="main-nav" id="main-nav">
+      <a href="index.html" class="nav-link">Home</a>
+      <a href="partners.html" class="nav-link">Partners</a>
+      <a href="founding-sponsors.html" class="nav-link">Sponsors</a>
+      <a href="future-projects.html" class="nav-link">What's Next</a>
+      <a href="https://c.org/vXFhNccRyn" target="_blank" rel="noopener" class="nav-link nav-highlight nav-highlight-red">Sign the Petition</a>
+      <a href="bridgework-campaign.html" class="nav-link nav-highlight">BridgeWork Campaign</a>
+      <a href="index.html#support" class="btn btn-dark-outline">Subscribe to Daily Activity Logs</a>
+    </nav>
+    <button class="nav-toggle" id="nav-toggle" aria-label="Open menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<!-- ================= PARTNERS HERO ================= -->
+<section id="partners-hero">
+  <span class="eyebrow">Community Partners</span>
+  <h1>Become a BridgeWork Community Partner</h1>
+  <p>BridgeWork partners with nonprofits and community organizations to help fund and coordinate small community improvement projects. Review our partnership agreement below to understand roles, responsibilities, and how we work together.</p>
+  <div class="hero-buttons">
+    <a href="#download-cta" class="btn btn-gold">Download the Agreement</a>
+    <a href="mailto:MWULLC@gmail.com" class="btn btn-outline">Email Us</a>
+  </div>
+</section>
+
+<!-- ================= REASSURANCE ================= -->
+<section id="reassurance">
+  <div class="container">
+    <div class="section-head fade-in">
+      <span class="eyebrow">Before You Read the Fine Print</span>
+      <h2>What You're Not Signing Up For</h2>
+    </div>
+    <div class="panel fade-in">
+      <ul class="check-list">
+        <li><strong>You are not being asked to fund BridgeWork.</strong> This partnership doesn't cost your organization anything.</li>
+        <li><strong>You are not required to fundraise.</strong> You won't be asked to raise money or promote BridgeWork campaigns.</li>
+        <li><strong>You are not becoming an employer.</strong> Your organization never hires, manages, or supervises task participants.</li>
+        <li><strong>You are not taking on payment responsibilities.</strong> BridgeWork handles all coordination and payment processing.</li>
+        <li><strong>You maintain full control over your own mission and projects.</strong> Nothing about this partnership limits your independence.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ================= WHAT THIS MEANS ================= -->
+<section id="agreement-means">
+  <div class="container">
+    <div class="section-head fade-in">
+      <span class="eyebrow">In Plain Terms</span>
+      <h2>What This Agreement Means</h2>
+    </div>
+    <div class="panel fade-in">
+      <ul class="check-list">
+        <li>Your organization identifies community needs.</li>
+        <li>BridgeWork helps coordinate funding and task completion.</li>
+        <li>Your organization does not hire workers or manage payments.</li>
+        <li>Participation does not require fundraising or endorsement of BridgeWork.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ================= DOWNLOAD CTA ================= -->
+<section id="download-cta">
+  <div class="container">
+    <div class="download-panel fade-in">
+      <h2>Download the Partnership Agreement</h2>
+      <p>Review the full BridgeWork Community Impact Partnership Agreement — roles, responsibilities, and terms, laid out in full.</p>
+      <a href="bridgework-partnership-agreement.pdf" target="_blank" rel="noopener" class="btn btn-gold">Download: Partnership Agreement (PDF)</a>
+      <p class="download-note">Questions before you download? Email us at <a href="mailto:MWULLC@gmail.com">MWULLC@gmail.com</a>.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ================= FOOTER ================= -->
+<footer>
+  <div class="container footer-grid">
+    <div>
+      <h4>Many Ways Up LLC</h4>
+      <p>Minneapolis, Minnesota</p>
+      <p>MWULLC@gmail.com</p>
+    </div>
+    <div>
+      <h4>Quick Links</h4>
+      <a href="index.html">Home</a>
+      <a href="partners.html">Partners</a>
+      <a href="https://c.org/vXFhNccRyn" target="_blank" rel="noopener">Sign the Petition</a>
+      <a href="bridgework-campaign.html">BridgeWork Campaign</a>
+      <a href="future-projects.html">What's Next</a>
+    </div>
+    <div>
+      <h4>Follow Along</h4>
+      <div class="social-icons">
+        <a href="https://www.facebook.com/share/197XEDegkw/?mibextid=wwXIfr" target="_blank" rel="noopener" title="Facebook" aria-label="Facebook">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M13.5 21v-8h2.7l.4-3.2h-3.1V7.7c0-.9.25-1.5 1.55-1.5H16.7V3.3C16.4 3.25 15.4 3.15 14.2 3.15c-2.4 0-4 1.45-4 4.1V9.8H7.5V13h2.7v8h3.3Z" fill="#fff"/></svg>
+        </a>
+        <a href="https://www.instagram.com/many_ways_up_llc?igsh=MTZsZDY0cXh5NGFoeA%3D%3D&utm_source=qr" target="_blank" rel="noopener" title="Instagram" aria-label="Instagram">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><rect x="3" y="3" width="18" height="18" rx="5" stroke="#fff" stroke-width="1.6"/><circle cx="12" cy="12" r="4" stroke="#fff" stroke-width="1.6"/><circle cx="17.2" cy="6.8" r="1.1" fill="#fff"/></svg>
+        </a>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>Building technology for the people who need it most.</span>
+    <span>|</span>
+    <span>&copy; 2026 Many Ways Up LLC</span>
+  </div>
+</footer>
+
+<script>
+  const faders = document.querySelectorAll('.fade-in');
+  const appearOnScroll = new IntersectionObserver((entries, observer) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.15, rootMargin: '0px 0px -60px 0px' });
+  faders.forEach(el => appearOnScroll.observe(el));
+
+  // Mobile nav toggle
+  const navToggle = document.getElementById('nav-toggle');
+  const mainNav = document.getElementById('main-nav');
+  if (navToggle && mainNav) {
+    navToggle.addEventListener('click', () => {
+      const isOpen = mainNav.classList.toggle('open');
+      navToggle.classList.toggle('open', isOpen);
+      navToggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+    });
+    mainNav.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => {
+        mainNav.classList.remove('open');
+        navToggle.classList.remove('open');
+        navToggle.setAttribute('aria-expanded', 'false');
+      });
+    });
+  }
+</script>
+</body>
+</html>
