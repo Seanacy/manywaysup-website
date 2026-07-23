@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Fund Community Tasks with BridgeWork — Many Ways Up LLC</title>
+<meta name="description" content="Back the BridgeWork task fund on WeStackr. Every contribution is held in escrow and released only when a task is verified complete.">
+<link rel="icon" type="image/x-icon" href="favicon.ico">
+<link rel="apple-touch-icon" href="favicon-180.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700;800&family=Inter:wght@300;400;500;600;700;800&family=Caveat:wght@500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --navy:#0F1F3D;
+    --white:#FFFFFF;
+    --green:#4CAF7D;
+    --gold:#D4A853;
+    --offwhite:#F9F5EF;
+    --grey:#F4F4F4;
+    --red:#D9534F;
+    --text-dark:#16233F;
+    --text-grey:#c9d2e3;
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  html{scroll-behavior:smooth;}
+  body{
+    font-family:'Inter', sans-serif;
+    background:var(--white);
+    color:var(--text-dark);
+    line-height:1.6;
+    overflow-x:hidden;
+  }
+  img,svg{max-width:100%; display:block;}
+  a{text-decoration:none; color:inherit;}
+  ul{list-style:none;}
+  .container{
+    max-width:1100px;
+    margin:0 auto;
+    padding:0 24px;
+  }
+  section{
+    padding:80px 0;
+    position:relative;
+  }
+  .eyebrow{
+    font-size:13px;
+    letter-spacing:2px;
+    font-weight:700;
+    text-transform:uppercase;
+    color:var(--green);
+    margin-bottom:14px;
+    display:block;
+  }
+  h1,h2,h3{font-family:'Playfair Display', serif; font-weight:700;}
+  .section-head{text-align:center; max-width:720px; margin:0 auto 48px;}
+  .section-head h2{font-size:clamp(28px,4vw,42px); color:var(--text-dark); line-height:1.25;}
+  .section-head p{margin-top:14px; font-size:16px; color:#555; font-weight:400;}
+  .dark .section-head h2{color:var(--white);}
+  .dark .section-head p{color:var(--text-grey);}
+
+  /* Buttons */
+  .btn{
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    gap:8px;
+    padding:14px 28px;
+    border-radius:8px;
+    font-weight:600;
+    font-size:15px;
+    cursor:pointer;
+    border:2px solid transparent;
+    transition:transform .2s ease, opacity .2s ease;
+    white-space:nowrap;
+  }
+  .btn:hover{transform:translateY(-2px);}
+  .btn-primary{background:var(--green); color:var(--white);}
+  .btn-outline{background:transparent; color:var(--white); border-color:rgba(255,255,255,0.5);}
+  .btn-outline:hover{border-color:var(--white);}
+  .btn-dark-outline{background:transparent; color:var(--navy); border-color:var(--navy);}
+  .btn-block{width:100%;}
+
+  .ph-badge{
+    display:inline-block;
+    font-size:10px;
+    font-weight:700;
+    letter-spacing:1px;
+    background:var(--gold);
+    color:var(--navy);
+    padding:2px 6px;
+    border-radius:4px;
+    margin-left:8px;
+    vertical-align:middle;
+  }
+
+  .fade-in{opacity:0; transform:translateY(24px); transition:opacity .8s ease, transform .8s ease;}
+  .fade-in.visible{opacity:1; transform:translateY(0);}
+
+  /* ---------- HEADER ---------- */
+  .site-header{
+    position:sticky;
+    top:0;
+    z-index:20;
+    background:var(--white);
+    box-shadow:0 1px 0 rgba(0,0,0,0.06);
+  }
+  .header-inner{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    padding:12px 24px;
+  }
+  .logo-group{
+    display:flex;
+    align-items:center;
+    gap:10px;
+  }
+  .logo-group img{
+    height:38px;
+    width:auto;
+  }
+  .logo-group span{
+    font-family:'Inter', sans-serif;
+    font-weight:800;
+    font-size:16px;
+    letter-spacing:0.5px;
+    color:var(--navy);
+    text-transform:uppercase;
+  }
+  .header-inner .btn{
+    padding:9px 18px;
+    font-size:13px;
+  }
+  .main-nav{display:flex; align-items:center; gap:14px;}
+  .nav-link{font-size:13.5px; font-weight:700; color:var(--navy); white-space:nowrap;}
+  .nav-link:hover{color:var(--green);}
+  .nav-link.nav-highlight{
+    background:var(--gold);
+    color:var(--navy);
+    padding:8px 14px;
+    border-radius:8px;
+    white-space:nowrap;
+  }
+  .nav-link.nav-highlight-red{
+    background:var(--red);
+    color:var(--white);
+  }
+  .nav-toggle{
+    display:none;
+    flex-direction:column;
+    justify-content:center;
+    gap:5px;
+    width:34px; height:34px;
+    background:none; border:none; cursor:pointer;
+    padding:0;
+  }
+  .nav-toggle span{
+    display:block; width:100%; height:2px; background:var(--navy);
+    transition:transform .2s ease, opacity .2s ease;
+  }
+  .nav-toggle.open span:nth-child(1){transform:translateY(7px) rotate(45deg);}
+  .nav-toggle.open span:nth-child(2){opacity:0;}
+  .nav-toggle.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg);}
+
+  @media (max-width:640px){
+    .nav-toggle{display:flex;}
+    .main-nav{
+      position:absolute;
+      top:100%; left:0; right:0;
+      background:var(--white);
+      flex-direction:column;
+      align-items:stretch;
+      gap:0;
+      max-height:0;
+      overflow:hidden;
+      box-shadow:0 8px 20px rgba(0,0,0,0.08);
+      transition:max-height .25s ease;
+    }
+    .main-nav.open{max-height:340px;}
+    .main-nav a{
+      padding:16px 24px !important;
+      border-radius:0 !important;
+      width:100%;
+      text-align:center;
+      border-bottom:1px solid #eee;
+    }
+  }
+
+  /* ---------- CAMPAIGN HERO ---------- */
+  #campaign-hero{
+    background:var(--navy);
+    color:var(--white);
+    text-align:center;
+    padding:100px 24px 80px;
+  }
+  #campaign-hero .eyebrow{color:var(--gold); text-align:center;}
+  #campaign-hero h1{
+    font-size:clamp(30px,5vw,52px);
+    line-height:1.2;
+    max-width:760px;
+    margin:0 auto 22px;
+    color:var(--white);
+  }
+  #campaign-hero p{
+    color:var(--text-grey);
+    font-size:clamp(15px,2vw,18px);
+    font-weight:300;
+    max-width:640px;
+    margin:0 auto 12px;
+  }
+  #campaign-hero .hero-buttons{
+    display:flex; flex-wrap:wrap; gap:16px; justify-content:center; margin-top:28px;
+  }
+
+  /* ---------- HOW IT WORKS ---------- */
+  #how-it-works{background:var(--offwhite);}
+  .how-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:24px;
+  }
+  .how-card{
+    background:var(--white);
+    border-radius:16px;
+    padding:30px;
+    box-shadow:0 4px 20px rgba(0,0,0,0.05);
+  }
+  .how-card .num{
+    font-family:'Playfair Display', serif;
+    font-size:26px;
+    color:var(--gold);
+    margin-bottom:10px;
+  }
+  .how-card h3{font-family:'Inter',sans-serif; font-size:18px; margin-bottom:8px; color:var(--text-dark);}
+  .how-card p{font-size:14.5px; color:#555;}
+
+  /* ---------- TRUST ---------- */
+  #trust{background:var(--white);}
+  .trust-row{
+    display:flex;
+    align-items:flex-start;
+    gap:28px;
+    background:var(--grey);
+    border-radius:16px;
+    padding:32px;
+    max-width:820px;
+    margin:0 auto;
+  }
+  .trust-row .trust-icon{
+    width:52px; height:52px; border-radius:50%;
+    background:var(--navy); color:var(--white);
+    display:flex; align-items:center; justify-content:center;
+    font-size:22px; flex-shrink:0;
+  }
+  .trust-row p{color:#444; font-size:15px;}
+  .trust-row strong{color:var(--text-dark);}
+  @media (max-width:600px){.trust-row{flex-direction:column; text-align:center;}}
+
+  /* ---------- EMBED ---------- */
+  #embed-campaign{background:var(--offwhite);}
+  .embed-wrap{
+    max-width:760px;
+    margin:0 auto;
+    border-radius:16px;
+    overflow:hidden;
+    box-shadow:0 12px 34px rgba(0,0,0,0.12);
+    background:var(--white);
+  }
+  .embed-wrap iframe{
+    width:100%;
+    min-height:680px;
+    border:none;
+    display:block;
+  }
+  .embed-note{
+    text-align:center;
+    max-width:600px;
+    margin:20px auto 0;
+    font-size:13px;
+    color:#777;
+  }
+  .embed-note a{color:var(--green); font-weight:600;}
+
+  /* ---------- FOOTER ---------- */
+  footer{background:var(--navy); color:var(--white); padding-top:60px;}
+  .footer-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:32px;
+    padding-bottom:40px;
+    border-bottom:1px solid rgba(255,255,255,0.1);
+  }
+  .footer-grid h4{font-size:17px; margin-bottom:14px; font-family:'Inter',sans-serif;}
+  .footer-grid p, .footer-grid a{display:block; font-size:14px; color:var(--text-grey); margin-bottom:8px;}
+  .footer-grid a:hover{color:var(--green);}
+  .social-icons{display:flex; gap:14px; margin-top:8px;}
+  .social-icons a{
+    width:38px; height:38px;
+    border-radius:50%;
+    border:1px solid rgba(255,255,255,0.2);
+    display:flex; align-items:center; justify-content:center;
+  }
+  .footer-bottom{
+    padding:24px;
+    text-align:center;
+    font-size:13px;
+    color:var(--text-grey);
+    display:flex;
+    flex-wrap:wrap;
+    justify-content:center;
+    gap:8px;
+  }
+
+  @media (max-width:820px){
+    .how-grid, .footer-grid{grid-template-columns:1fr;}
+    section{padding:56px 0;}
+  }
+</style>
+</head>
+<body>
+
+<!-- ================= HEADER ================= -->
+<header class="site-header">
+  <div class="container header-inner">
+    <a href="index.html" class="logo-group">
+      <img src="mwu-icon.png" alt="Many Ways Up logo">
+      <span>Many Ways Up</span>
+    </a>
+    <nav class="main-nav" id="main-nav">
+      <a href="index.html" class="nav-link">Home</a>
+      <a href="partners.html" class="nav-link">Partners</a>
+      <a href="founding-sponsors.html" class="nav-link">Sponsors</a>
+      <a href="future-projects.html" class="nav-link">What's Next</a>
+      <a href="https://c.org/vXFhNccRyn" target="_blank" rel="noopener" class="nav-link nav-highlight nav-highlight-red">Sign the Petition</a>
+      <a href="bridgework-campaign.html" class="nav-link nav-highlight">BridgeWork Campaign</a>
+      <a href="index.html#support" class="btn btn-dark-outline">Subscribe to Daily Activity Logs</a>
+    </nav>
+    <button class="nav-toggle" id="nav-toggle" aria-label="Open menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<!-- ================= CAMPAIGN HERO ================= -->
+<section id="campaign-hero">
+  <span class="eyebrow">Stabilization &middot; BridgeWork</span>
+  <h1>Fund Community Tasks with BridgeWork</h1>
+  <p>BridgeWork connects people facing financial hardship with small, same-day tasks — yard work, moving help, cleaning, errands — that pay $15 to $20 for 15 to 20 minutes of work. No background check. No application. No waiting. Just a way to earn cash today.</p>
+  <p>This campaign funds the task pool that makes that possible.</p>
+  <div class="hero-buttons">
+    <a href="#embed-campaign" class="btn btn-primary">Back This Campaign</a>
+    <a href="https://bridgework.life" target="_blank" rel="noopener" class="btn btn-outline">Visit BridgeWork</a>
+  </div>
+</section>
+
+<!-- ================= HOW IT WORKS ================= -->
+<section id="how-it-works">
+  <div class="container">
+    <div class="section-head fade-in">
+      <span class="eyebrow">How It Works</span>
+      <h2>Your contribution becomes someone's next paycheck.</h2>
+    </div>
+    <div class="how-grid">
+      <div class="how-card fade-in">
+        <span class="num">01</span>
+        <h3>You contribute</h3>
+        <p>Any amount you give goes into the BridgeWork task fund, held in escrow — not spent until a task is actually completed.</p>
+      </div>
+      <div class="how-card fade-in">
+        <span class="num">02</span>
+        <h3>A task gets posted</h3>
+        <p>Someone facing hardship picks up a same-day task — a 15 to 20 minute job that pays $15 to $20.</p>
+      </div>
+      <div class="how-card fade-in">
+        <span class="num">03</span>
+        <h3>Money moves on completion</h3>
+        <p>Once the task is verified done, the payout releases from escrow straight to the worker. That's it.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= TRUST ================= -->
+<section id="trust">
+  <div class="container">
+    <div class="trust-row fade-in">
+      <div class="trust-icon">&#128274;</div>
+      <p><strong>Every dollar is held in escrow through Stripe</strong> and only released when a task is verified complete. The campaign runs on WeStackr, our own crowdfunding platform, which tracks a public reputation score, completion rate, and payout history for full transparency — you can see exactly where the money goes.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ================= EMBEDDED CAMPAIGN ================= -->
+<section id="embed-campaign">
+  <div class="container">
+    <div class="section-head fade-in">
+      <span class="eyebrow">Be a Founding Backer</span>
+      <h2>This campaign is brand new. Be one of our first backers.</h2>
+      <p>Early support helps BridgeWork launch its task fund and prove the model works.</p>
+    </div>
+    <div class="embed-wrap fade-in">
+      <iframe src="https://www.westackr.com/embed/campaign/7fcb305f-9753-447e-bb5d-7a9504aae054" loading="lazy" title="BridgeWork Campaign on WeStackr"></iframe>
+    </div>
+    <p class="embed-note">Powered by <a href="https://www.westackr.com/campaign/7fcb305f-9753-447e-bb5d-7a9504aae054" target="_blank" rel="noopener">WeStackr</a> — view the full campaign page and reputation details there.</p>
+  </div>
+</section>
+
+<!-- ================= FOOTER ================= -->
+<footer>
+  <div class="container footer-grid">
+    <div>
+      <h4>Many Ways Up LLC</h4>
+      <p>Minneapolis, Minnesota</p>
+      <p>MWULLC@gmail.com</p>
+    </div>
+    <div>
+      <h4>Quick Links</h4>
+      <a href="index.html">Home</a>
+      <a href="partners.html">Partners</a>
+      <a href="founding-sponsors.html">Become a Sponsor</a>
+      <a href="https://c.org/vXFhNccRyn" target="_blank" rel="noopener">Sign the Petition</a>
+      <a href="future-projects.html">What's Next</a>
+      <a href="index.html#support">Support the Mission</a>
+    </div>
+    <div>
+      <h4>Follow Along</h4>
+      <div class="social-icons">
+        <a href="https://www.facebook.com/profile.php?id=61591646315394" target="_blank" rel="noopener" title="Facebook" aria-label="Facebook">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M13.5 21v-8h2.7l.4-3.2h-3.1V7.7c0-.9.25-1.5 1.55-1.5H16.7V3.3C16.4 3.25 15.4 3.15 14.2 3.15c-2.4 0-4 1.45-4 4.1V9.8H7.5V13h2.7v8h3.3Z" fill="#fff"/></svg>
+        </a>
+        <a href="https://www.instagram.com/many_ways_up_llc?igsh=MTZsZDY0cXh5NGFoeA%3D%3D&utm_source=qr" target="_blank" rel="noopener" title="Instagram" aria-label="Instagram">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><rect x="3" y="3" width="18" height="18" rx="5" stroke="#fff" stroke-width="1.6"/><circle cx="12" cy="12" r="4" stroke="#fff" stroke-width="1.6"/><circle cx="17.2" cy="6.8" r="1.1" fill="#fff"/></svg>
+        </a>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>Building technology for the people who need it most.</span>
+    <span>|</span>
+    <span>&copy; 2026 Many Ways Up LLC</span>
+  </div>
+</footer>
+
+<script>
+  const faders = document.querySelectorAll('.fade-in');
+  const appearOnScroll = new IntersectionObserver((entries, observer) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.15, rootMargin: '0px 0px -60px 0px' });
+  faders.forEach(el => appearOnScroll.observe(el));
+
+  // Mobile nav toggle
+  const navToggle = document.getElementById('nav-toggle');
+  const mainNav = document.getElementById('main-nav');
+  if (navToggle && mainNav) {
+    navToggle.addEventListener('click', () => {
+      const isOpen = mainNav.classList.toggle('open');
+      navToggle.classList.toggle('open', isOpen);
+      navToggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+    });
+    mainNav.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => {
+        mainNav.classList.remove('open');
+        navToggle.classList.remove('open');
+        navToggle.setAttribute('aria-expanded', 'false');
+      });
+    });
+  }
+</script>
+</body>
+</html>
